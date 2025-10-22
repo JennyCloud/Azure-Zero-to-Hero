@@ -24,7 +24,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2023-03-01' = {
 
 ---
 
-## 🔄 Comparison
+# 🔄 Comparison
 | **Concept**                          | **How It Relates / Differs from IaC**                                                                                                                              | **Purpose**                                      |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ |
 | **Configuration as Code (CaC)**      | Focuses on configuring the *software* inside servers (like installing IIS or setting app settings), while IaC sets up the *infrastructure* (VMs, networks, disks). | Manages software configuration and system state. |
@@ -35,6 +35,6 @@ resource vm 'Microsoft.Compute/virtualMachines@2023-03-01' = {
 
 ---
 
-## 🧠 Key Takeaway
+# 🧠 Key Takeaway
 
 IaC is part of a bigger “Everything as Code” movement — where infrastructure, configuration, policy, and pipelines are all defined and automated through code.
