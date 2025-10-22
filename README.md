@@ -7,7 +7,7 @@ It stores the labs I completed, the questions I researched, and concepts I studi
 
 - **Azure-Lab-Portfolio-AZ104**: Labs I completed for hands-on practice with Azure services.  
 - **Concepts-Comparison**: Notes and comparisons between Azure services to understand differences and use cases.  
-- **Cloud-QA-Hub**: Questions I researched and their answers, to help me review and retain knowledge.
+- **Cloud-QA-Hub**: Questions I researched, to help me review and retain knowledge.
 
 ## 🎯 Purpose
 
