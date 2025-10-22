@@ -10,9 +10,6 @@ This lab demonstrates how to deploy a **Windows Virtual Machine** in Microsoft A
 - Assigning a **Public IP**  
 - Connecting via **RDP**  
 
-> **Note:**  
-> An initial attempt was made to deploy the VM using Azure PowerShell. Due to subscription feature restrictions (Trusted Launch/security type), the deployment via PowerShell was not completed. The VM was successfully deployed using the Azure Portal.
-
 **Date Completed:** October 19, 2025
 
 ---
