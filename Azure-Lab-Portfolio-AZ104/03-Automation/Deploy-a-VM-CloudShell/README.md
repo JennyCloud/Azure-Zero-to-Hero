@@ -1,7 +1,5 @@
 # Lab 3: Deploy a VM using Cloud Shell
 
-**Azure**
-
 ---
 
 ## Objective
