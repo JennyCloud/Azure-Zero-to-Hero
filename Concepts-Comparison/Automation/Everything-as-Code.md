@@ -22,5 +22,3 @@ This makes your environment **repeatable, consistent, and version-controlled**.
 # 🧠 Key Takeaway
 
 IaC is part of a bigger “Everything as Code” movement — where infrastructure, configuration, policy, and pipelines are all defined and automated through code.
-  }
-}
