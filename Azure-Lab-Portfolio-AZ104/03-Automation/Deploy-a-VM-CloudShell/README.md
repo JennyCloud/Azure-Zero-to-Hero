@@ -1,7 +1,5 @@
 # Lab 3: Deploy a VM using Cloud Shell
 
----
-
 ## Objective
 Deploy a Windows Server 2019 VM in Azure using Cloud Shell, configure secure access via Azure Bastion, and test network connectivity.
 
