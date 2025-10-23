@@ -1,5 +1,6 @@
-| Feature          | **Inbound NAT Rule**         | **Load Balancing Rule**                      |
-| ---------------- | ---------------------------- | -------------------------------------------- |
-| Sends traffic to | One specific VM              | Multiple VMs (backend pool)                  |
-| Purpose          | Admin access (e.g., RDP/SSH) | Distribute user traffic (e.g., web requests) |
-| Common port      | Custom (50001, 50002, etc.)  | Common (80, 443, etc.)                       |
+| Feature      | Load Balancing Rule     | Inbound NAT Rule                 |
+| ------------ | ----------------------- | -------------------------------- |
+| Purpose      | Distribute user traffic | Give admin access to specific VM |
+| Connects to  | Backend Pool (many VMs) | One specific VM                  |
+| Typical Port | 80 (HTTP), 443 (HTTPS)  | 50001 → 3389, etc.               |
+| Used for     | Websites, apps          | Remote login (RDP/SSH)           |
