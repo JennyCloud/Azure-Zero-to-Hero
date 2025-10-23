@@ -1,4 +1,3 @@
-## NSG
-filters traffic at subnet/VM level
-## Firewall
-centralized, advanced features, logging
+Need to allow or block traffic? NSG. 
+Need to route traffic? VNet. 
+Need high-scale inspection? Firewall.
