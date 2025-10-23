@@ -1,4 +1,4 @@
-# Lab 1: Deploy a Virtual Machine
+# Lab: Deploy a Virtual Machine
 
 ---
 
