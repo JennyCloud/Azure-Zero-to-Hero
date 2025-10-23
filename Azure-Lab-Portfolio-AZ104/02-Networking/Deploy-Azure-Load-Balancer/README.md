@@ -1,4 +1,4 @@
-# Lab 2: Azure Load Balancer
+# Lab: Deploy Azure Load Balancer
 
 ![Azure](https://img.shields.io/badge/Azure-Cloud-blue)
 
