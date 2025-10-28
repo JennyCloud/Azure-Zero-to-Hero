@@ -30,8 +30,6 @@ This lab demonstrates VNet design, gateway deployment, routing, and end-to-end t
 *Figure: Site-to-Site VPN between Azure VNet and simulated On-Prem VNet using route-based gateways and test VMs.*
 
 <br>
-
-
 ---
 
 ## 🧩 Tools Used
