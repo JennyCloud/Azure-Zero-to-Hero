@@ -52,5 +52,6 @@ Get-AzVirtualNetworkGatewayConnection -ResourceGroupName "HybridLab-RG" |
   Select-Object Name, ConnectionType, ConnectionStatus, EgressBytesTransferred
 
 # Expected: ConnectionStatus = Connected after a few minutes
+# Results: ConnectionStatus always shows blank, but it shows connected in the Portal
 # -------------------------------------------------
 
