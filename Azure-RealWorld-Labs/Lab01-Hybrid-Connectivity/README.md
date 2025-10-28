@@ -21,7 +21,6 @@ This lab demonstrates VNet design, gateway deployment, routing, and end-to-end t
 | **Connections** | VNet-to-VNet using shared key `Lab123!SharedKey` |
 | **Verification** | Cross-ping between Azure VM and On-Prem VM through VPN tunnel |
 
-<br>
 
 ### 🔷 Diagram
 
@@ -29,7 +28,6 @@ This lab demonstrates VNet design, gateway deployment, routing, and end-to-end t
 
 *Figure: Site-to-Site VPN between Azure VNet and simulated On-Prem VNet using route-based gateways and test VMs.*
 
-<br>
 ---
 
 ## 🧩 Tools Used
