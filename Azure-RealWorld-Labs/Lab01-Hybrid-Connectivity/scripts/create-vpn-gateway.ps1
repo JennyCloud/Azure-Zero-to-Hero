@@ -37,3 +37,11 @@ New-AzVirtualNetworkGateway `
     -GatewayType "Vpn" `
     -VpnType "RouteBased" `
     -GatewaySku "VpnGw1"
+
+    # -------------------------------
+# Notes:
+# - Provisioning takes ~30 minutes.
+# - Check progress with:
+#   Get-AzVirtualNetworkGateway -Name "AzureVPN-Gateway" -ResourceGroupName "HybridLab-RG"
+# - Expected result: ProvisioningState : Succeeded
+# -------------------------------
