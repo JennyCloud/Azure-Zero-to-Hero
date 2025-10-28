@@ -69,7 +69,5 @@ It mirrors daily MSP tasks—configuring hybrid connectivity, resolving customer
 
 ---
 
-### 🧩 Usage
-These Q&A notes can be reviewed before interviews or shared in your portfolio to demonstrate both technical knowledge and professional reasoning.
 
 *End of File – Lab 01 Interview Q&A*
