@@ -56,7 +56,7 @@ This lab demonstrates VNet design, gateway deployment, routing, and end-to-end t
 
 ## ✅ Results
 - **VPN Status:** Connected  
-- **Ping Test:** Successful (OnPremTestVM → AzureTestVM)  
+- **Ping Test:** Successful (Verified bi-directional connectivity)  
 - **EgressBytesTransferred:** Non-zero values confirm live traffic  
 - **Evidence:** All scripts and screenshots in `/scripts` and `/screenshots`  
 
