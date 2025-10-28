@@ -1,5 +1,4 @@
 # Step 6: Simulate On-Prem Network and Deploy OnPrem VPN Gateway
-# Author: Jenny Wang (@JennyCloud)
 # Purpose: Create a second VNet to simulate an on-prem environment and deploy its VPN Gateway
 
 # -------------------------------
