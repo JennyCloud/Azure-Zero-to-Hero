@@ -1,6 +1,7 @@
 # Step 6.3: Create Site-to-Site (VNet-to-VNet) VPN Connections
 # Purpose: Establish encrypted tunnels between AzureVPN-Gateway and OnPremVPN-Gateway
 
+
 # -------------------------------------------------
 # 1. Retrieve both gateways
 # -------------------------------------------------
