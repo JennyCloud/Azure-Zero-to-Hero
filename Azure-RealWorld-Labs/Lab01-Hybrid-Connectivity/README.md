@@ -6,6 +6,15 @@
 
 ---
 
+## 🧭 Architecture Diagram
+
+![Hybrid Connectivity Architecture](./screenshots/architecture-diagram.png)
+
+*Figure: Site-to-Site VPN between Azure VNet and simulated On-Prem VNet using route-based gateways.*
+
+---
+
+
 ## 🎯 Purpose
 Create a realistic hybrid network scenario that mirrors how Managed Service Providers (MSPs) link on-premises client infrastructure to Azure using IPsec VPN gateways.  
 This lab demonstrates VNet design, gateway deployment, routing, and end-to-end troubleshooting.
@@ -20,6 +29,8 @@ This lab demonstrates VNet design, gateway deployment, routing, and end-to-end t
 | **Gateways** | Two route-based VPN gateways (SKU :`VpnGw1`) |
 | **Connections** | VNet-to-VNet using shared key `Lab123!SharedKey` |
 | **Verification** | Cross-ping between Azure VM and On-Prem VM through VPN tunnel |
+
+📎 *See full diagram above for network topology and gateway connections.*
 
 ---
 
