@@ -2,8 +2,6 @@
 **Author:** Jenny Wang (@JennyCloud)  
 **Date:** October 27, 2025  
 
-These questions and answers summarize technical and reasoning points you can discuss during MSP or Azure Administrator interviews.
-
 ---
 
 ## 🧭 Architecture & Design
