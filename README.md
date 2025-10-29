@@ -25,8 +25,8 @@ It contains structured labs, daily Q&A practice, and conceptual comparisons desi
 
 | Lab | Title | Focus | Links |
 |:--:|:------|:------|:------|
-| 01 | **Hybrid Connectivity** | Site-to-Site VPN, VNet-to-VNet Gateway | [Summary](./Azure-RealWorld-Labs/Lab01-Hybrid-Connectivity/LabSummary.md) • [Full Lab](./Azure-RealWorld-Labs/Lab01-Hybrid-Connectivity/README.md) |
-| 02 | **Load Balancing & High Availability** | Standard LB, TCP Probes, IIS Web Tier | [Summary](./Azure-RealWorld-Labs/Lab02-LoadBalancing-HA/LabSummary.md) • [Full Lab](./Azure-RealWorld-Labs/Lab02-LoadBalancing-HA/README.md) |
+| 01 | **Hybrid Connectivity** | Site-to-Site VPN, VNet-to-VNet Gateway | [Full Lab](./Azure-RealWorld-Labs/Lab01-Hybrid-Connectivity/README.md) |
+| 02 | **Load Balancing & High Availability** | Standard LB, TCP Probes, IIS Web Tier | [Full Lab](./Azure-RealWorld-Labs/Lab02-LoadBalancing-HA/README.md) |
 
 ---
 
