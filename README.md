@@ -1,12 +1,14 @@
 # ☁️ Azure Zero to Hero — Cloud Learning Portfolio  
 **Author:** Jenny Wang (@JennyCloud)  
-**Goal:** Document and demonstrate hands-on Azure projects, automation, and troubleshooting through real-world scenarios.
+**Focus:** Building, automating, and troubleshooting Azure infrastructure with real-world, MSP-style scenarios.
 
 ---
 
-## 🧭 Repository Overview
-This repository showcases my journey from cloud fundamentals to production-ready Azure deployments.  
-It contains structured labs, daily Q&A practice, and conceptual comparisons designed to mirror the responsibilities of a junior Azure administrator or MSP engineer.
+## 🧭 Overview
+This repository documents my end-to-end Azure learning journey — from hybrid networking and load balancing to certification-focused labs and daily troubleshooting practice.  
+Each folder represents a structured learning path combining **hands-on deployment**, **PowerShell automation**, and **professional documentation**.
+
+I designed these labs to mirror the tasks of a **junior cloud administrator** or **MSP engineer** — focusing on uptime, resilience, and reproducibility rather than just theory.
 
 ---
 
@@ -14,46 +16,52 @@ It contains structured labs, daily Q&A practice, and conceptual comparisons desi
 
 | Folder | Description |
 |:--------|:-------------|
-| **[Azure-RealWorld-Labs](./Azure-RealWorld-Labs/)** | Hands-on, production-style Azure projects (Hybrid Networks, Load Balancing, Monitoring). |
-| **[Azure-Lab-Portfolio-AZ104](./Azure-Lab-Portfolio-AZ104/)** | AZ-104 certification-focused labs and deployment exercises. |
-| **[Cloud-QA-Hub](./Cloud-QA-Hub/)** | Q&A scenarios, troubleshooting practice, and Azure concept drills. |
-| **[Concepts-Comparison](./Concepts-Comparison/)** | Short explanations comparing similar Azure services (e.g., NSG vs ASG, ARM vs Bicep). |
+| **[Azure-RealWorld-Labs](./Azure-RealWorld-Labs/)** | Real production-style Azure labs (Hybrid Networking, Load Balancing, Monitoring). |
+| **[Azure-Lab-Portfolio-AZ104](./Azure-Lab-Portfolio-AZ104/)** | AZ-104 certification-oriented labs — compute, identity, networking, and storage. |
+| **[Cloud-QA-Hub](./Cloud-QA-Hub/)** | Daily Azure Q&A practice, troubleshooting notes, and concept reviews. |
+| **[Concepts-Comparison](./Concepts-Comparison/)** | Concise comparisons between similar Azure services (e.g., NSG vs ASG, ARM vs Bicep). |
 
 ---
 
-## 🧩 Featured Labs
+## 🧩 Featured Labs (from Azure-RealWorld-Labs)
 
-| Lab | Title | Focus | Links |
+| 🧠 Lab | Title | Focus | Links |
 |:--:|:------|:------|:------|
-| 01 | **Hybrid Connectivity** | Site-to-Site VPN, VNet-to-VNet Gateway | [Full Lab](./Azure-RealWorld-Labs/Lab01-Hybrid-Connectivity/README.md) |
-| 02 | **Load Balancing & High Availability** | Standard LB, TCP Probes, IIS Web Tier | [Full Lab](./Azure-RealWorld-Labs/Lab02-LoadBalancing-HA/README.md) |
+| **01** | **Hybrid Connectivity** | Site-to-Site VPN, VNet-to-VNet Gateway | [Summary](./Azure-RealWorld-Labs/Lab01-Hybrid-Connectivity/README.md) |
+| **02** | **Load Balancing & High Availability** | Standard Load Balancer, TCP Probes, IIS Web Tier | [Summary](./Azure-RealWorld-Labs/Lab02-LoadBalancing-HA/README.md) |
+
+Each lab includes:
+- PowerShell deployment scripts  
+- Architecture diagrams  
+- Screenshots of verification steps  
+- Troubleshooting notes and interview Q&A  
 
 ---
 
-## 🛠 Tools & Technologies
+## 🛠️ Tools & Technologies
 - **Azure PowerShell (Az Module)**  
 - **Azure Portal & Resource Manager**  
 - **Windows Server 2022 / IIS**  
 - **Network Security Groups (NSG)**  
-- **Load Balancers & Health Probes**  
-- **Bicep / ARM Templates (Upcoming)**  
+- **Standard Load Balancer & Probes**  
+- **ARM / Bicep (upcoming)**  
 
 ---
 
 ## 🧠 Learning Focus
-- Building hybrid and cloud-native architectures  
-- Troubleshooting connectivity and NSG issues  
-- Automating deployments and documenting fixes  
-- Thinking like an MSP engineer: uptime, resiliency, repeatability  
+- Designing and implementing **hybrid & cloud-native architectures**  
+- Configuring **network security** and **access control**  
+- Diagnosing and resolving **connectivity issues**  
+- Automating Azure infrastructure deployments  
+- Practicing **incident response and documentation** skills used by MSPs  
 
 ---
 
 ## 📈 Roadmap
-- **Lab 03:** Azure Monitor & Alerts  
+- **Lab 03:** Azure Monitoring & Alerts  
 - **Lab 04:** Infrastructure as Code (Bicep)  
-- Continue expanding **Cloud-QA-Hub** with daily concept testing.  
+- Continue expanding **Cloud-QA-Hub** with new practice questions and scenarios.  
 
 ---
 
-⭐ *This repository is part of my continuous learning journey to master real-world Azure administration and DevOps practices.*
-
+⭐ *This repository reflects my ongoing journey toward mastering Azure administration and DevOps — one lab, one lesson, and one improvement at a time.*
