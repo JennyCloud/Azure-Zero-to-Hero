@@ -70,7 +70,7 @@ Diagnostics included:
 - `iis-install-success.png` — IIS installed successfully  
 - `webvm1-page.png` / `webvm2-page.png` — local IIS tests  
 - `loadbalancer-success.png` — web page served via public LB IP  
-- `Lab_2_LoadBalancer.png` — architecture diagram  
+- `architecture-diagram.png` — architecture diagram  
 
 ---
 
