@@ -38,6 +38,18 @@ Run it directly in **Azure Cloud Shell (PowerShell mode)** to reproduce the same
 
 ---
 
+## 📸 Screenshots
+
+### Virtual Network Overview
+![VNet Overview](./screenshots/vnet-overview.png)
+
+### Network Security Group — Allow-HTTP Rule
+![NSG Rules](./screenshots/nsg-rules.png)
+
+### Subnet Association
+![Subnet Association](./screenshots/subnet-association.png)
+
+
 ## 🧩 Reflection
 This mini-lab builds the foundation for **secure, segmented networks** in Azure.  
 It demonstrates how to:
