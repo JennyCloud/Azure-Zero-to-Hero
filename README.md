@@ -1,5 +1,3 @@
-![Azure Zero to Hero Banner](./Images/banner-azure-zero-to-hero.png)
-
 # ☁️ Azure Zero to Hero — Cloud Learning Portfolio  
 **Author:** Jenny Wang (@JennyCloud)  
 **Goal:** Document and demonstrate hands-on Azure projects, automation, and troubleshooting through real-world scenarios.
