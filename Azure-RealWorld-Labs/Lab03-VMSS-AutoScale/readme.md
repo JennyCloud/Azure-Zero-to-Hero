@@ -21,7 +21,7 @@ Create a scalable web tier that automatically provisions IIS on each instance, l
 
 ## 🏗️ Architecture Diagram
 
-![Lab 3 Architecture Diagram](./lab3-architecture.png)
+![Lab 3 Architecture Diagram](./architecture-diagram.png)
 
 The Load Balancer receives incoming HTTP requests on port 80 and distributes them across VMSS instances.  
 Each instance runs IIS and serves a simple web page that confirms successful setup.
