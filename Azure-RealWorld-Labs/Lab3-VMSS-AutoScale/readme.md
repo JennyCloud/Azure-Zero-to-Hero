@@ -1,7 +1,5 @@
 # Lab 3 – Azure Virtual Machine Scale Set with Load Balancer
 
-**Author:** Jenny Wang (@JennyCloud)    
-
 ---
 
 ## 🧠 Overview
@@ -37,8 +35,6 @@ Each instance runs IIS and serves a simple web page that confirms successful set
 | Script | Description |
 |--------|--------------|
 | **create-vmss-lab3.ps1** | Builds the VMSS, links it to the existing Load Balancer, installs IIS using `CustomData`. |
-| **fix-loadbalancer.ps1** *(optional)* | Rebuilds or re-links Load Balancer probes and rules if HTTP traffic fails. |
-| **verify-vmss.ps1** | Checks that IIS is installed and running across all VMSS instances. |
 
 ---
 ## 🔧 Troubleshooting Guide
@@ -67,9 +63,3 @@ Select InstanceId, ProvisioningState, LatestModelApplied
 
 # Test HTTP connection from Cloud Shell
 Invoke-WebRequest http://20.63.9.175 -UseBasicParsing
-
----
-
-☁️ Lab 3 successfully demonstrates scalable web hosting using Azure VMSS + Load Balancer + NSG automation.
-
-
