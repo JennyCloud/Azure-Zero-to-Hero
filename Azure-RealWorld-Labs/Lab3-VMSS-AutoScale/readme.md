@@ -1,7 +1,5 @@
 # Lab 3 – Azure Virtual Machine Scale Set with Load Balancer
 
----
-
 ## 🧠 Overview
 
 This lab extends **Lab 2**, where a public Load Balancer distributed traffic across two standalone VMs.  
