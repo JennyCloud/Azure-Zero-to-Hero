@@ -102,6 +102,12 @@ Explanation:
 6. CLEANUP
    - az vm delete removes only the VM; to delete the entire lab, remove the resource group.
 
+🧭 Key Takeaways
+1. az vm create automatically provisions networking unless you specify your own.
+2. Use --query and -o tsv to extract clean, script-friendly values.
+3. The same script works for both Windows and Linux VMs (just change image and port).
+4. For automation pipelines, this pattern scales beautifully — easy to loop over many VMs.
+
 RESULT:
 You can now deploy and connect to Azure VMs entirely through Bash and Azure CLI.
 =========================================================
