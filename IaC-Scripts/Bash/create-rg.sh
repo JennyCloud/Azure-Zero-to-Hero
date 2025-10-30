@@ -68,6 +68,12 @@ Explanation:
    - Deleting a group removes all resources within it.
    - "--yes" auto-confirms deletion; "--no-wait" runs it asynchronously.
 
+🧭 Key Takeaways
+1. Azure CLI uses az group create for creating groups, and az group exists for boolean verification.
+2. $() captures command output into variables.
+3. if [ "$exists" = true ]; then ... fi is a standard Bash conditional pattern.
+4. --output table gives human-friendly formatting for Cloud Shell or terminals.
+
 RESULT:
 This script provides a simple and repeatable way to create
 and validate resource groups directly from Bash and Azure CLI.
