@@ -14,7 +14,7 @@ Each lab focuses on deployment, automation, and troubleshooting.
 
 | Folder | Description |
 |:--|:--|
-| **[Azure-RealWorld-Labs](./Azure-RealWorld-Labs/)** | Full Azure labs (Networking, Load Balancing, Monitoring). |
+| **[Azure-RealWorld-Labs](./Azure-RealWorld-Labs/)** | Practical, production-style Azure labs. |
 | **[MiniLabs](./MiniLabs/)** | Short, focused labs for quick practice. |
 
 ---
