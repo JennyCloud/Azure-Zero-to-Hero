@@ -29,7 +29,7 @@ Each lab focuses on deployment, automation, and troubleshooting.
 ---
 
 ## 🧰 Tools
-Azure Portal · PowerShell (Az) · ARM/Bicep · Windows Server · NSG · Load Balancer
+Azure Portal · PowerShell (Az) · ARM/Bicep
 
 ---
 
