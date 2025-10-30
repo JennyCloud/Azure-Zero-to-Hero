@@ -1,67 +1,45 @@
-# ☁️ Azure Zero to Hero — Cloud Learning Portfolio  
+# ☁️ Azure Zero to Hero — Learning Portfolio  
 **Author:** Jenny Wang (@JennyCloud)  
-**Focus:** Building, automating, and troubleshooting Azure infrastructure with real-world, MSP-style scenarios.
+**Focus:** Practical Azure labs for learning, automation, and troubleshooting.
 
 ---
 
 ## 🧭 Overview
-This repository documents my end-to-end Azure learning journey — from hybrid networking and load balancing to certification-focused labs and daily troubleshooting practice.  
-Each folder represents a structured learning path combining **hands-on deployment**, **PowerShell automation**, and **professional documentation**.
-
-I designed these labs to mirror the tasks of a **junior cloud administrator** or **MSP engineer** — focusing on uptime, resilience, and reproducibility rather than just theory.
+This repo tracks my hands-on journey in Microsoft Azure — building and managing real-world environments like a **junior cloud admin** or **MSP engineer**.  
+Each lab focuses on deployment, automation, and troubleshooting.
 
 ---
 
-## 📂 Folder Index
+## 📂 Structure
 
 | Folder | Description |
-|:--------|:-------------|
-| **[Azure-RealWorld-Labs](./Azure-RealWorld-Labs/)** | Real production-style Azure labs (Hybrid Networking, Load Balancing, Monitoring). |
-| **[Azure-Lab-Portfolio-AZ104](./Azure-Lab-Portfolio-AZ104/)** | AZ-104 certification-oriented labs — compute, identity, networking, and storage. |
-| **[Cloud-QA-Hub](./Cloud-QA-Hub/)** | Daily Azure Q&A practice, troubleshooting notes, and concept reviews. |
-| **[Concepts-Comparison](./Concepts-Comparison/)** | Concise comparisons between similar Azure services (e.g., NSG vs ASG, ARM vs Bicep). |
+|:--|:--|
+| **[Azure-RealWorld-Labs](./Azure-RealWorld-Labs/)** | Full Azure labs (Networking, Load Balancing, Monitoring). |
+| **[MiniLabs](./MiniLabs/)** | Short, focused labs for quick practice. |
 
 ---
 
-## 🧩 Featured Labs (from Azure-RealWorld-Labs)
+## ⚙️ Featured Labs
 
-| 🧠 Lab | Title | Focus | Links |
-|:--:|:------|:------|:------|
-| **01** | **Hybrid Connectivity** | Site-to-Site VPN, VNet-to-VNet Gateway | [Summary](./Azure-RealWorld-Labs/Lab01-Hybrid-Connectivity/README.md) |
-| **02** | **Load Balancing & High Availability** | Standard Load Balancer, TCP Probes, IIS Web Tier | [Summary](./Azure-RealWorld-Labs/Lab02-LoadBalancing-HA/README.md) |
-
-Each lab includes:
-- PowerShell deployment scripts  
-- Architecture diagrams  
-- Screenshots of verification steps  
-- Troubleshooting notes and interview Q&A  
+| Lab | Title | Focus | Link |
+|:--:|:--|:--|:--|
+| 01 | Hybrid Connectivity | Site-to-Site VPN, VNet Peering | [View](./Azure-RealWorld-Labs/Lab01-Hybrid-Connectivity/README.md) |
+| 02 | Load Balancing & HA | Standard Load Balancer, IIS Web Tier | [View](./Azure-RealWorld-Labs/Lab02-LoadBalancing-HA/README.md) |
 
 ---
 
-## 🛠️ Tools & Technologies
-- **Azure PowerShell (Az Module)**  
-- **Azure Portal & Resource Manager**  
-- **Windows Server 2022 / IIS**  
-- **Network Security Groups (NSG)**  
-- **Standard Load Balancer & Probes**  
-- **ARM / Bicep (upcoming)**  
+## 🧰 Tools
+Azure Portal · PowerShell (Az) · ARM/Bicep · Windows Server · NSG · Load Balancer
 
 ---
 
-## 🧠 Learning Focus
-- Designing and implementing **hybrid & cloud-native architectures**  
-- Configuring **network security** and **access control**  
-- Diagnosing and resolving **connectivity issues**  
-- Automating Azure infrastructure deployments  
-- Practicing **incident response and documentation** skills used by MSPs  
+## 🧠 Focus Areas
+- Hybrid & cloud-native setup  
+- Security & access control  
+- Connectivity troubleshooting  
+- Infrastructure automation  
+- MSP-style documentation  
 
 ---
 
-## 📈 Roadmap
-- **Lab 03:** Azure Monitoring & Alerts  
-- **Lab 04:** Infrastructure as Code (Bicep)  
-- Continue expanding **Cloud-QA-Hub** with new practice questions and scenarios.  
-
----
-
-⭐ *This repository reflects my ongoing journey toward mastering Azure administration and DevOps — one lab, one lesson, and one improvement at a time.*
+⭐ *Learning Azure step by step — through real labs, real scripts, and real growth.*
