@@ -1,0 +1,158 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "canadacentral",
+      "metadata": { "description": "Azure region where the network will be deployed." }
+    },
+    "vnetName": {
+      "type": "string",
+      "defaultValue": "LabVNet",
+      "metadata": { "description": "Virtual Network name." }
+    },
+    "subnetName": {
+      "type": "string",
+      "defaultValue": "WebSubnet",
+      "metadata": { "description": "Subnet name inside the VNet." }
+    },
+    "nsgName": {
+      "type": "string",
+      "defaultValue": "WebSubnet-NSG",
+      "metadata": { "description": "Network Security Group name." }
+    },
+    "vnetPrefix": {
+      "type": "string",
+      "defaultValue": "10.0.0.0/16",
+      "metadata": { "description": "VNet address space." }
+    },
+    "subnetPrefix": {
+      "type": "string",
+      "defaultValue": "10.0.1.0/24",
+      "metadata": { "description": "Subnet address range." }
+    }
+  },
+
+  "resources": [
+    {
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "apiVersion": "2023-04-01",
+      "name": "[parameters('nsgName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "securityRules": [
+          {
+            "name": "Allow-HTTP",
+            "properties": {
+              "priority": 100,
+              "direction": "Inbound",
+              "access": "Allow",
+              "protocol": "Tcp",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "sourcePortRange": "*",
+              "destinationPortRange": "80",
+              "description": "Allow inbound HTTP traffic on port 80."
+            }
+          },
+          {
+            "name": "Allow-RDP",
+            "properties": {
+              "priority": 200,
+              "direction": "Inbound",
+              "access": "Allow",
+              "protocol": "Tcp",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "sourcePortRange": "*",
+              "destinationPortRange": "3389",
+              "description": "Allow RDP for remote access."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2023-04-01",
+      "name": "[parameters('vnetName')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName'))]"
+      ],
+      "properties": {
+        "addressSpace": { "addressPrefixes": [ "[parameters('vnetPrefix')]" ] },
+        "subnets": [
+          {
+            "name": "[parameters('subnetName')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnetPrefix')]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName'))]"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+
+  "outputs": {
+    "subnetId": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('subnetName'))]"
+    },
+    "nsgName": {
+      "type": "string",
+      "value": "[parameters('nsgName')]"
+    }
+  },
+
+  "__comment__": [
+    "=========================================================",
+    "Line-by-Line Explanation:",
+    "",
+    "1. PARAMETERS",
+    "   • location, vnetName, subnetName, nsgName — customizable inputs.",
+    "   • vnetPrefix and subnetPrefix define private address ranges.",
+    "",
+    "2. RESOURCES",
+    "   a) networkSecurityGroups:",
+    "        Creates the NSG with two rules:",
+    "          - Allow-HTTP (Inbound, TCP 80)",
+    "          - Allow-RDP (Inbound, TCP 3389)",
+    "        By default, all other inbound traffic is denied.",
+    "",
+    "   b) virtualNetworks:",
+    "        Builds the VNet and a single Subnet.",
+    "        The 'dependsOn' ensures the NSG exists first.",
+    "        The Subnet associates directly with the NSG through its ID.",
+    "",
+    "3. OUTPUTS",
+    "   • subnetId — used by other templates to attach VMs or NICs.",
+    "   • nsgName — helpful for diagnostics or chaining templates.",
+    "",
+    "---------------------------------------------------------",
+    "Deployment (Azure CLI Example):",
+    "",
+    "az group create --name DemoLab-RG --location canadacentral",
+    "az deployment group create \\",
+    "  --resource-group DemoLab-RG \\",
+    "  --template-file IaC-Scripts/ARM/create-network-arm.json",
+    "",
+    "---------------------------------------------------------",
+    "Concepts Recap:",
+    "• NSG acts as a firewall — default deny inbound, allow outbound.",
+    "• Dependencies keep order without explicit scripting.",
+    "• Outputs let you reuse subnet IDs in other deployments.",
+    "",
+    "Result:",
+    "   - A VNet (10.0.0.0/16)",
+    "   - A Subnet (10.0.1.0/24)",
+    "   - NSG with inbound HTTP & RDP allowed.",
+    "   - Subnet securely bound to that NSG.",
+    "========================================================="
+  ]
+}
