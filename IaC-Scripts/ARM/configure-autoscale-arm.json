@@ -1,0 +1,168 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "canadacentral",
+      "metadata": { "description": "Region of the VMSS." }
+    },
+    "vmssName": {
+      "type": "string",
+      "defaultValue": "WebApp-VMSS",
+      "metadata": { "description": "Target Virtual Machine Scale Set name." }
+    },
+    "autoscaleName": {
+      "type": "string",
+      "defaultValue": "WebApp-VMSS-Autoscale",
+      "metadata": { "description": "Autoscale setting name." }
+    },
+    "minCount": {
+      "type": "int",
+      "defaultValue": 1
+    },
+    "maxCount": {
+      "type": "int",
+      "defaultValue": 5
+    },
+    "defaultCount": {
+      "type": "int",
+      "defaultValue": 2
+    },
+    "scaleOutCpu": {
+      "type": "int",
+      "defaultValue": 70
+    },
+    "scaleInCpu": {
+      "type": "int",
+      "defaultValue": 30
+    }
+  },
+
+  "variables": {
+    "vmssResourceId": "[resourceId('Microsoft.Compute/virtualMachineScaleSets', parameters('vmssName'))]"
+  },
+
+  "resources": [
+    {
+      "type": "Microsoft.Insights/autoscaleSettings",
+      "apiVersion": "2022-10-01",
+      "name": "[parameters('autoscaleName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "enabled": true,
+        "targetResourceUri": "[variables('vmssResourceId')]",
+        "profiles": [
+          {
+            "name": "DefaultProfile",
+            "capacity": {
+              "minimum": "[string(parameters('minCount'))]",
+              "maximum": "[string(parameters('maxCount'))]",
+              "default": "[string(parameters('defaultCount'))]"
+            },
+            "rules": [
+              {
+                "metricTrigger": {
+                  "metricName": "Percentage CPU",
+                  "metricNamespace": "",
+                  "metricResourceUri": "[variables('vmssResourceId')]",
+                  "operator": "GreaterThan",
+                  "threshold": "[parameters('scaleOutCpu')]",
+                  "timeAggregation": "Average",
+                  "timeGrain": "PT1M",
+                  "statistic": "Average",
+                  "timeWindow": "PT10M"
+                },
+                "scaleAction": {
+                  "direction": "Increase",
+                  "type": "ChangeCount",
+                  "value": "1",
+                  "cooldown": "PT5M"
+                }
+              },
+              {
+                "metricTrigger": {
+                  "metricName": "Percentage CPU",
+                  "metricNamespace": "",
+                  "metricResourceUri": "[variables('vmssResourceId')]",
+                  "operator": "LessThan",
+                  "threshold": "[parameters('scaleInCpu')]",
+                  "timeAggregation": "Average",
+                  "timeGrain": "PT1M",
+                  "statistic": "Average",
+                  "timeWindow": "PT15M"
+                },
+                "scaleAction": {
+                  "direction": "Decrease",
+                  "type": "ChangeCount",
+                  "value": "1",
+                  "cooldown": "PT10M"
+                }
+              }
+            ]
+          }
+        ],
+        "notifications": []
+      }
+    }
+  ],
+
+  "outputs": {
+    "autoscaleSettingId": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.Insights/autoscaleSettings', parameters('autoscaleName'))]"
+    }
+  },
+
+  "__comment__": [
+    "=========================================================",
+    "Line-by-Line Explanation:",
+    "",
+    "1. PARAMETERS",
+    "   • minCount / maxCount / defaultCount → boundaries of your VMSS instance count.",
+    "   • scaleOutCpu = 70 and scaleInCpu = 30 define the CPU thresholds.",
+    "",
+    "2. VARIABLES",
+    "   • vmssResourceId builds the full Azure resource ID for the target VMSS.",
+    "",
+    "3. RESOURCE TYPE: Microsoft.Insights/autoscaleSettings",
+    "   • This resource belongs to Azure Monitor.",
+    "   • targetResourceUri links it directly to your VMSS.",
+    "",
+    "4. PROFILES",
+    "   • Profiles define a group of rules and capacity bounds.",
+    "   • Here we only use one default profile, but you can define different profiles for schedules (day/night/weekend).",
+    "",
+    "5. RULES",
+    "   a) Scale Out Rule",
+    "        - Trigger: Average CPU > 70 for 10 minutes.",
+    "        - Action: Increase instance count by 1 after 5 minutes cool-down.",
+    "",
+    "   b) Scale In Rule",
+    "        - Trigger: Average CPU < 30 for 15 minutes.",
+    "        - Action: Decrease instance count by 1 after 10 minutes cool-down.",
+    "",
+    "6. OUTPUT",
+    "   • autoscaleSettingId returns the full ID for future monitoring or teardown.",
+    "",
+    "---------------------------------------------------------",
+    "Deployment Example (Azure CLI):",
+    "",
+    "az group create --name DemoLab-RG --location canadacentral",
+    "az deployment group create \\",
+    "  --resource-group DemoLab-RG \\",
+    "  --template-file IaC-Scripts/ARM/configure-autoscale-arm.json",
+    "",
+    "---------------------------------------------------------",
+    "Concepts Recap:",
+    "• Declarative autoscaling lets Azure adjust capacity without manual intervention.",
+    "• Each rule uses Azure Monitor metrics and scaling actions.",
+    "• TimeGrain (PT1M) and TimeWindow (PT10M / PT15M) control sampling and averaging.",
+    "• Cooldown prevents thrashing between scale-in/out events.",
+    "",
+    "Result:",
+    "  Your VMSS automatically adds or removes VM instances based on CPU load.",
+    "========================================================="
+  ]
+}
