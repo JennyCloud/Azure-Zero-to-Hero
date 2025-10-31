@@ -1,0 +1,165 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "canadacentral",
+      "metadata": { "description": "Azure region for the load balancer." }
+    },
+    "lbName": {
+      "type": "string",
+      "defaultValue": "Web-LB",
+      "metadata": { "description": "Name of the Load Balancer." }
+    },
+    "pipName": {
+      "type": "string",
+      "defaultValue": "Web-PublicIP",
+      "metadata": { "description": "Public IP resource name." }
+    },
+    "backendName": {
+      "type": "string",
+      "defaultValue": "LB-Backend",
+      "metadata": { "description": "Backend pool name." }
+    },
+    "probeName": {
+      "type": "string",
+      "defaultValue": "TCP-Probe",
+      "metadata": { "description": "Health probe name." }
+    },
+    "ruleName": {
+      "type": "string",
+      "defaultValue": "HTTP-Rule",
+      "metadata": { "description": "Load-balancing rule name." }
+    }
+  },
+
+  "resources": [
+    {
+      "type": "Microsoft.Network/publicIPAddresses",
+      "apiVersion": "2023-04-01",
+      "name": "[parameters('pipName')]",
+      "location": "[parameters('location')]",
+      "sku": { "name": "Basic" },
+      "properties": { "publicIPAllocationMethod": "Static" }
+    },
+    {
+      "type": "Microsoft.Network/loadBalancers",
+      "apiVersion": "2023-04-01",
+      "name": "[parameters('lbName')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/publicIPAddresses', parameters('pipName'))]"
+      ],
+      "sku": { "name": "Basic" },
+      "properties": {
+        "frontendIPConfigurations": [
+          {
+            "name": "LB-Frontend",
+            "properties": {
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('pipName'))]"
+              }
+            }
+          }
+        ],
+        "backendAddressPools": [
+          { "name": "[parameters('backendName')]" }
+        ],
+        "probes": [
+          {
+            "name": "[parameters('probeName')]",
+            "properties": {
+              "protocol": "Tcp",
+              "port": 80,
+              "intervalInSeconds": 5,
+              "numberOfProbes": 2
+            }
+          }
+        ],
+        "loadBalancingRules": [
+          {
+            "name": "[parameters('ruleName')]",
+            "properties": {
+              "frontendIPConfiguration": {
+                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('lbName')), '/frontendIPConfigurations/LB-Frontend')]"
+              },
+              "backendAddressPool": {
+                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('lbName')), '/backendAddressPools/', parameters('backendName'))]"
+              },
+              "probe": {
+                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('lbName')), '/probes/', parameters('probeName'))]"
+              },
+              "protocol": "Tcp",
+              "frontendPort": 80,
+              "backendPort": 80,
+              "enableFloatingIP": false,
+              "idleTimeoutInMinutes": 4,
+              "loadDistribution": "Default"
+            }
+          }
+        ]
+      }
+    }
+  ],
+
+  "outputs": {
+    "publicIP": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('pipName'))).ipAddress]"
+    },
+    "backendPoolId": {
+      "type": "string",
+      "value": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('lbName')), '/backendAddressPools/', parameters('backendName'))]"
+    }
+  },
+
+  "__comment__": [
+    "=========================================================",
+    "Line-by-Line Explanation:",
+    "",
+    "1. PARAMETERS",
+    "   Names and location for each component: Load Balancer, Public IP,",
+    "   backend pool, probe, and rule — all customizable.",
+    "",
+    "2. RESOURCES",
+    "   a) publicIPAddresses:",
+    "      • Creates a static public IP for external access.",
+    "      • The Basic SKU is sufficient for testing; use Standard for production.",
+    "",
+    "   b) loadBalancers:",
+    "      • Depends on the public IP.",
+    "      • frontendIPConfigurations → associates the public IP with the LB front end.",
+    "      • backendAddressPools → where VMs or VMSS instances are registered.",
+    "      • probes → check backend health every 5 s on port 80 (2 failures = unhealthy).",
+    "      • loadBalancingRules → forward TCP:80 → TCP:80 from front end to backend pool.",
+    "",
+    "3. OUTPUTS",
+    "   • publicIP → the external IP for testing via browser or curl.",
+    "   • backendPoolId → used by VM/VMSS templates to join the LB backend pool.",
+    "",
+    "---------------------------------------------------------",
+    "Deployment (CLI Example):",
+    "",
+    "az group create --name DemoLab-RG --location canadacentral",
+    "az deployment group create \\",
+    "  --resource-group DemoLab-RG \\",
+    "  --template-file IaC-Scripts/ARM/create-loadbalancer-arm.json",
+    "",
+    "---------------------------------------------------------",
+    "Concepts Recap:",
+    "• Load Balancer is a layer-4 (TCP/UDP) device distributing traffic evenly.",
+    "• Probes define health checks; only healthy backends receive traffic.",
+    "• Rules map front-end ports to back-end ports.",
+    "• Outputs make this template reusable — other templates can attach VMs/VMSS.",
+    "",
+    "Result:",
+    "   - Static Public IP",
+    "   - Frontend IP config (LB-Frontend)",
+    "   - Backend pool (LB-Backend)",
+    "   - TCP probe on port 80",
+    "   - Rule HTTP-Rule for port 80 traffic.",
+    "========================================================="
+  ]
+}
