@@ -1,0 +1,105 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "canadacentral",
+      "metadata": {
+        "description": "Azure region where resources will be deployed."
+      }
+    },
+    "rgName": {
+      "type": "string",
+      "defaultValue": "SyntaxDemo-RG",
+      "metadata": {
+        "description": "Resource Group name (for reference only)."
+      }
+    }
+  },
+  "variables": {
+    "storageName": "[concat('stor', uniqueString(resourceGroup().id))]",
+    "accountType": "Standard_LRS"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2022-09-01",
+      "name": "[variables('storageName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[variables('accountType')]"
+      },
+      "kind": "StorageV2",
+      "properties": {}
+    }
+  ],
+  "outputs": {
+    "storageAccountName": {
+      "type": "string",
+      "value": "[variables('storageName')]"
+    }
+  },
+
+  "__comment__": [
+    "=========================================================",
+    "Line-by-Line Explanation:",
+    "",
+    "1. $schema",
+    "   Points to the ARM schema that defines valid structure and keywords.",
+    "   It helps Azure validate this file during deployment.",
+    "",
+    "2. contentVersion",
+    "   Your own version label (not enforced by Azure). Helps you track edits.",
+    "",
+    "3. parameters",
+    "   Accept values at deployment time. Each parameter includes:",
+    "       - type (string, int, bool, array, object, securestring)",
+    "       - defaultValue (optional)",
+    "       - metadata.description (for documentation)",
+    "",
+    "4. variables",
+    "   Hold calculated or reusable values.",
+    "   Here, we use uniqueString(resourceGroup().id) so that the storage",
+    "   account name is globally unique (Azure requires uniqueness).",
+    "",
+    "5. resources",
+    "   Defines actual Azure resources to deploy.",
+    "   Each resource block includes:",
+    "       - type (e.g., Microsoft.Storage/storageAccounts)",
+    "       - apiVersion (the REST API version to call)",
+    "       - name, location, sku, kind, properties (as needed)",
+    "",
+    "6. outputs",
+    "   Values returned after deployment — useful for chaining templates.",
+    "",
+    "---------------------------------------------------------",
+    "How to Deploy (CLI Example):",
+    "",
+    "   az group create --name DemoLab-RG --location canadacentral",
+    "   az deployment group create \\",
+    "       --resource-group DemoLab-RG \\",
+    "       --template-file IaC-Scripts/ARM/understanding-arm-syntax.json",
+    "",
+    "---------------------------------------------------------",
+    "Concepts Recap:",
+    "",
+    "• Declarative IaC: You describe the final state; Azure builds it.",
+    "• Idempotent: Re-running the same template won’t duplicate resources.",
+    "• Composable: Multiple templates can be nested or linked.",
+    "• Portable: Works with Azure CLI, PowerShell, or pipelines alike.",
+    "",
+    "---------------------------------------------------------",
+    "Key Functions Used:",
+    "   concat()        → joins strings together",
+    "   uniqueString()  → generates deterministic unique strings",
+    "   resourceGroup() → references the current deployment's RG context",
+    "",
+    "---------------------------------------------------------",
+    "Result:",
+    "   • Deploys a Storage Account named stor<uniqueID> in canadacentral.",
+    "   • Outputs its name at the end of deployment.",
+    "   • Demonstrates parameters, variables, and resource declaration syntax.",
+    "========================================================="
+  ]
+}
