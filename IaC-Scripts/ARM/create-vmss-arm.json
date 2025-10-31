@@ -1,0 +1,176 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "canadacentral",
+      "metadata": { "description": "Azure region for deployment." }
+    },
+    "vmssName": {
+      "type": "string",
+      "defaultValue": "WebApp-VMSS",
+      "metadata": { "description": "Scale Set name." }
+    },
+    "adminUsername": {
+      "type": "string",
+      "defaultValue": "azureuser",
+      "metadata": { "description": "Administrator username." }
+    },
+    "adminPassword": {
+      "type": "securestring",
+      "metadata": { "description": "Administrator password." }
+    },
+    "vnetName": {
+      "type": "string",
+      "defaultValue": "LabVNet",
+      "metadata": { "description": "Existing Virtual Network name." }
+    },
+    "subnetName": {
+      "type": "string",
+      "defaultValue": "WebSubnet",
+      "metadata": { "description": "Subnet name to join." }
+    },
+    "lbName": {
+      "type": "string",
+      "defaultValue": "Web-LB",
+      "metadata": { "description": "Existing Load Balancer name." }
+    },
+    "backendPoolName": {
+      "type": "string",
+      "defaultValue": "LB-Backend",
+      "metadata": { "description": "Backend pool name in the Load Balancer." }
+    },
+    "instanceCount": {
+      "type": "int",
+      "defaultValue": 2,
+      "metadata": { "description": "Initial number of VM instances." }
+    }
+  },
+
+  "variables": {
+    "vmSize": "Standard_B1s",
+    "imageReference": {
+      "publisher": "MicrosoftWindowsServer",
+      "offer": "WindowsServer",
+      "sku": "2022-datacenter-smalldisk",
+      "version": "latest"
+    },
+    "subnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('subnetName'))]",
+    "backendPoolId": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('lbName')), '/backendAddressPools/', parameters('backendPoolName'))]"
+  },
+
+  "resources": [
+    {
+      "type": "Microsoft.Compute/virtualMachineScaleSets",
+      "apiVersion": "2023-03-01",
+      "name": "[parameters('vmssName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[variables('vmSize')]",
+        "tier": "Standard",
+        "capacity": "[parameters('instanceCount')]"
+      },
+      "properties": {
+        "upgradePolicy": { "mode": "Automatic" },
+        "virtualMachineProfile": {
+          "storageProfile": {
+            "imageReference": "[variables('imageReference')]",
+            "osDisk": {
+              "createOption": "FromImage",
+              "caching": "ReadWrite",
+              "managedDisk": { "storageAccountType": "Standard_LRS" }
+            }
+          },
+          "osProfile": {
+            "computerNamePrefix": "[parameters('vmssName')]",
+            "adminUsername": "[parameters('adminUsername')]",
+            "adminPassword": "[parameters('adminPassword')]"
+          },
+          "networkProfile": {
+            "networkInterfaceConfigurations": [
+              {
+                "name": "nicConfig",
+                "properties": {
+                  "primary": true,
+                  "ipConfigurations": [
+                    {
+                      "name": "ipconfig1",
+                      "properties": {
+                        "subnet": { "id": "[variables('subnetId')]" },
+                        "loadBalancerBackendAddressPools": [
+                          { "id": "[variables('backendPoolId')]" }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+
+  "outputs": {
+    "vmssId": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.Compute/virtualMachineScaleSets', parameters('vmssName'))]"
+    },
+    "vmssInstances": {
+      "type": "int",
+      "value": "[parameters('instanceCount')]"
+    }
+  },
+
+  "__comment__": [
+    "=========================================================",
+    "Line-by-Line Explanation:",
+    "",
+    "1. PARAMETERS",
+    "   • Basic environment inputs: region, VNet/Subnet, Load Balancer, and credentials.",
+    "   • instanceCount sets how many VMs launch initially.",
+    "",
+    "2. VARIABLES",
+    "   • vmSize and imageReference define the VM configuration.",
+    "   • subnetId and backendPoolId build full resource IDs for reuse.",
+    "",
+    "3. RESOURCE: virtualMachineScaleSets",
+    "   • Deploys identical VMs behind the Load Balancer backend pool.",
+    "   • upgradePolicy Automatic → Azure updates instances automatically.",
+    "",
+    "   a) storageProfile → which OS image and disk type to use.",
+    "   b) osProfile → admin credentials and computer name prefix.",
+    "   c) networkProfile →",
+    "        - Attaches to the specified subnet.",
+    "        - Registers each instance in the backend pool for load balancing.",
+    "",
+    "4. OUTPUTS",
+    "   • vmssId → full Azure resource ID for scripting or chaining.",
+    "   • vmssInstances → confirms how many instances were deployed.",
+    "",
+    "---------------------------------------------------------",
+    "Deployment Example:",
+    "",
+    "az group create --name DemoLab-RG --location canadacentral",
+    "az deployment group create \\",
+    "  --resource-group DemoLab-RG \\",
+    "  --template-file IaC-Scripts/ARM/create-vmss-arm.json \\",
+    "  --parameters adminPassword='StrongP@ssw0rd!'",
+    "",
+    "---------------------------------------------------------",
+    "Concepts Recap:",
+    "• VMSS = a set of identical VMs managed as one unit.",
+    "• loadBalancerBackendAddressPools links each instance to the LB you built earlier.",
+    "• subnetId connects the VMSS to your existing network.",
+    "• Automatic upgrade policy simplifies patching.",
+    "",
+    "Result:",
+    "   - 2 Windows Server 2022 instances",
+    "   - Connected to your Load Balancer backend pool",
+    "   - Ready for autoscaling and monitoring rules.",
+    "========================================================="
+  ]
+}
