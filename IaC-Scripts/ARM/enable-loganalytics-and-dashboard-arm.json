@@ -1,0 +1,159 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "canadacentral",
+      "metadata": { "description": "Region for workspace and dashboard." }
+    },
+    "rgName": {
+      "type": "string",
+      "defaultValue": "DemoLab-RG",
+      "metadata": { "description": "Resource Group for the deployment." }
+    },
+    "vmssName": {
+      "type": "string",
+      "defaultValue": "WebApp-VMSS",
+      "metadata": { "description": "Target VM Scale Set for monitoring." }
+    },
+    "workspaceName": {
+      "type": "string",
+      "defaultValue": "VMSS-Logs",
+      "metadata": { "description": "Log Analytics Workspace name." }
+    },
+    "dashboardName": {
+      "type": "string",
+      "defaultValue": "VMSS-Monitor-Dashboard",
+      "metadata": { "description": "Azure Portal Dashboard name." }
+    }
+  },
+
+  "variables": {
+    "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]",
+    "vmssResourceId": "[resourceId('Microsoft.Compute/virtualMachineScaleSets', parameters('vmssName'))]"
+  },
+
+  "resources": [
+    {
+      "type": "Microsoft.OperationalInsights/workspaces",
+      "apiVersion": "2022-10-01",
+      "name": "[parameters('workspaceName')]",
+      "location": "[parameters('location')]",
+      "properties": { "sku": { "name": "PerGB2018" } }
+    },
+    {
+      "type": "Microsoft.Insights/diagnosticSettings",
+      "apiVersion": "2021-05-01-preview",
+      "name": "VMSS-Diagnostics",
+      "dependsOn": [
+        "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]"
+      ],
+      "properties": {
+        "workspaceId": "[variables('workspaceId')]",
+        "metrics": [ { "category": "AllMetrics", "enabled": true } ]
+      },
+      "scope": "[variables('vmssResourceId')]"
+    },
+    {
+      "type": "Microsoft.Portal/dashboards",
+      "apiVersion": "2019-01-01-preview",
+      "name": "[parameters('dashboardName')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]"
+      ],
+      "properties": {
+        "lenses": {
+          "0": {
+            "order": 0,
+            "parts": {
+              "cpuTile": {
+                "position": { "x": 0, "y": 0, "colSpan": 3, "rowSpan": 4 },
+                "metadata": {
+                  "inputs": [
+                    { "name": "ResourceId", "value": "[variables('vmssResourceId')]" }
+                  ],
+                  "type": "Extension/MetricsPart",
+                  "settings": {
+                    "content": {
+                      "chart": {
+                        "metrics": [
+                          { "name": "Percentage CPU", "aggregationType": "Average" }
+                        ]
+                      }
+                    },
+                    "title": "VMSS Average CPU (Live)"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "metadata": {
+          "model": {
+            "timeRange": { "value": "PT1H" }
+          }
+        }
+      }
+    }
+  ],
+
+  "outputs": {
+    "workspaceId": { "type": "string", "value": "[variables('workspaceId')]" },
+    "dashboardName": { "type": "string", "value": "[parameters('dashboardName')]" }
+  },
+
+  "__comment__": [
+    "=========================================================",
+    "Line-by-Line Explanation:",
+    "",
+    "1. PARAMETERS",
+    "   • workspaceName and dashboardName → user-friendly identifiers.",
+    "   • vmssName links this deployment to your existing Scale Set.",
+    "",
+    "2. VARIABLES",
+    "   • workspaceId → the resource ID of the Log Analytics workspace.",
+    "   • vmssResourceId → target VMSS for diagnostics.",
+    "",
+    "3. RESOURCES",
+    "   a) Microsoft.OperationalInsights/workspaces:",
+    "        - Creates a Log Analytics workspace for metrics and logs.",
+    "        - SKU PerGB2018 charges per GB ingested.",
+    "",
+    "   b) Microsoft.Insights/diagnosticSettings:",
+    "        - Attaches VMSS metrics to the workspace.",
+    "        - Category 'AllMetrics' captures CPU, memory, disk, and network stats.",
+    "",
+    "   c) Microsoft.Portal/dashboards:",
+    "        - Deploys a Portal dashboard showing VMSS Average CPU.",
+    "        - Lenses → visual layout container.",
+    "        - parts → tiles/widgets inside the dashboard.",
+    "        - The MetricsPart tile shows live CPU graph for your VMSS.",
+    "",
+    "4. OUTPUTS",
+    "   • Returns workspaceId and dashboardName for verification or reference.",
+    "",
+    "---------------------------------------------------------",
+    "Deployment Example (Azure CLI):",
+    "",
+    "az group create --name DemoLab-RG --location canadacentral",
+    "az deployment group create \\",
+    "  --resource-group DemoLab-RG \\",
+    "  --template-file IaC-Scripts/ARM/enable-loganalytics-and-dashboard-arm.json",
+    "",
+    "---------------------------------------------------------",
+    "Concepts Recap:",
+    "• Log Analytics = data lake for metrics and logs from multiple Azure resources.",
+    "• Diagnostic Settings = bridge between a resource and its monitoring target.",
+    "• Dashboards = ARM-defined UI components that can be shared or versioned.",
+    "• All declarative — deploy once, reuse everywhere.",
+    "",
+    "Result:",
+    "   - Log Analytics workspace connected to your VMSS.",
+    "   - Diagnostic pipeline capturing metrics automatically.",
+    "   - Visual dashboard available under Azure Portal → Dashboards.",
+    "========================================================="
+  ]
+}
