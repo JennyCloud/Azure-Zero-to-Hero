@@ -1,0 +1,179 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+
+  "parameters": {
+    "vmName": {
+      "type": "string",
+      "defaultValue": "LabVM01",
+      "metadata": { "description": "Virtual Machine name." }
+    },
+    "adminUsername": {
+      "type": "string",
+      "defaultValue": "azureuser",
+      "metadata": { "description": "Admin account username." }
+    },
+    "adminPassword": {
+      "type": "securestring",
+      "metadata": { "description": "Admin password for the VM." }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "canadacentral",
+      "metadata": { "description": "Region for all resources." }
+    }
+  },
+
+  "variables": {
+    "vnetName": "LabVNet",
+    "subnetName": "WebSubnet",
+    "pipName": "LabPublicIP",
+    "nicName": "LabNIC",
+    "addressPrefix": "10.0.0.0/16",
+    "subnetPrefix": "10.0.1.0/24",
+    "imageReference": {
+      "publisher": "MicrosoftWindowsServer",
+      "offer": "WindowsServer",
+      "sku": "2022-datacenter-smalldisk",
+      "version": "latest"
+    },
+    "vmSize": "Standard_B1s"
+  },
+
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2023-04-01",
+      "name": "[variables('vnetName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "addressSpace": { "addressPrefixes": [ "[variables('addressPrefix')]" ] },
+        "subnets": [
+          { "name": "[variables('subnetName')]", "properties": { "addressPrefix": "[variables('subnetPrefix')]" } }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Network/publicIPAddresses",
+      "apiVersion": "2023-04-01",
+      "name": "[variables('pipName')]",
+      "location": "[parameters('location')]",
+      "sku": { "name": "Basic" },
+      "properties": { "publicIPAllocationMethod": "Dynamic" }
+    },
+    {
+      "type": "Microsoft.Network/networkInterfaces",
+      "apiVersion": "2023-04-01",
+      "name": "[variables('nicName')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', variables('vnetName'))]",
+        "[resourceId('Microsoft.Network/publicIPAddresses', variables('pipName'))]"
+      ],
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "subnet": {
+                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetName'), variables('subnetName'))]"
+              },
+              "privateIPAllocationMethod": "Dynamic",
+              "publicIPAddress": { "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('pipName'))]" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2023-03-01",
+      "name": "[parameters('vmName')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('nicName'))]"
+      ],
+      "properties": {
+        "hardwareProfile": { "vmSize": "[variables('vmSize')]" },
+        "osProfile": {
+          "computerName": "[parameters('vmName')]",
+          "adminUsername": "[parameters('adminUsername')]",
+          "adminPassword": "[parameters('adminPassword')]"
+        },
+        "storageProfile": {
+          "imageReference": "[variables('imageReference')]",
+          "osDisk": {
+            "createOption": "FromImage",
+            "managedDisk": { "storageAccountType": "Standard_LRS" }
+          }
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            { "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('nicName'))]" }
+          ]
+        }
+      }
+    }
+  ],
+
+  "outputs": {
+    "publicIPAddress": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('pipName'))).ipAddress]"
+    }
+  },
+
+  "__comment__": [
+    "=========================================================",
+    "Line-by-Line Explanation:",
+    "",
+    "1. PARAMETERS",
+    "   • adminPassword is securestring (masked during deployment).",
+    "   • location ensures all resources deploy in the same region.",
+    "",
+    "2. VARIABLES",
+    "   Centralize repeated names and address ranges.",
+    "   imageReference defines the marketplace image to use.",
+    "",
+    "3. RESOURCES (in dependency order)",
+    "   a) Microsoft.Network/virtualNetworks",
+    "      → Creates the VNet and Subnet.",
+    "",
+    "   b) Microsoft.Network/publicIPAddresses",
+    "      → Allocates a dynamic public IP for remote access.",
+    "",
+    "   c) Microsoft.Network/networkInterfaces",
+    "      → Attaches the subnet and public IP to a NIC.",
+    "        dependsOn ensures the VNet and IP exist first.",
+    "",
+    "   d) Microsoft.Compute/virtualMachines",
+    "      → Builds the VM using the imageReference and NIC.",
+    "        dependsOn links to the NIC creation.",
+    "",
+    "4. DEPENDSON",
+    "   Prevents race conditions by enforcing creation order.",
+    "",
+    "5. OUTPUTS",
+    "   Returns the live public IP of the VM so you can connect immediately.",
+    "",
+    "---------------------------------------------------------",
+    "Deployment command (CLI):",
+    "",
+    "az group create --name DemoLab-RG --location canadacentral",
+    "az deployment group create \\",
+    "  --resource-group DemoLab-RG \\",
+    "  --template-file IaC-Scripts/ARM/create-vm-arm.json \\",
+    "  --parameters adminPassword=<YourSecurePassword>",
+    "",
+    "---------------------------------------------------------",
+    "Concepts:",
+    "• Declarative dependencies via dependsOn.",
+    "• Each resource block corresponds to an Azure REST provider type.",
+    "• Outputs make templates chainable.",
+    "• Works identically from CLI, PowerShell, or pipelines.",
+    "",
+    "Result:",
+    "   One fully functional Windows Server VM with network and IP.",
+    "========================================================="
+  ]
+}
