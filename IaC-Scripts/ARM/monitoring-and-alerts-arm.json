@@ -1,0 +1,200 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "canadacentral",
+      "metadata": { "description": "Region of the monitored VMSS." }
+    },
+    "rgName": {
+      "type": "string",
+      "defaultValue": "DemoLab-RG",
+      "metadata": { "description": "Resource Group name (for scoping alerts)." }
+    },
+    "vmssName": {
+      "type": "string",
+      "defaultValue": "WebApp-VMSS",
+      "metadata": { "description": "Virtual Machine Scale Set to monitor." }
+    },
+    "actionGroupName": {
+      "type": "string",
+      "defaultValue": "VMSS-ActionGroup",
+      "metadata": { "description": "Action Group name." }
+    },
+    "shortName": {
+      "type": "string",
+      "defaultValue": "vmssag",
+      "metadata": { "description": "Short name for Action Group (<=12 chars)." }
+    },
+    "emailAddress": {
+      "type": "string",
+      "defaultValue": "you@example.com",
+      "metadata": { "description": "Email recipient for alerts." }
+    },
+    "metricAlertName": {
+      "type": "string",
+      "defaultValue": "VMSS-CPU-High",
+      "metadata": { "description": "Name of the metric alert rule." }
+    },
+    "activityAlertName": {
+      "type": "string",
+      "defaultValue": "VMSS-Autoscale-Activity",
+      "metadata": { "description": "Name of the activity log alert." }
+    },
+    "cpuThreshold": {
+      "type": "int",
+      "defaultValue": 80
+    },
+    "severity": {
+      "type": "int",
+      "defaultValue": 3
+    }
+  },
+
+  "variables": {
+    "vmssResourceId": "[resourceId('Microsoft.Compute/virtualMachineScaleSets', parameters('vmssName'))]"
+  },
+
+  "resources": [
+    {
+      "type": "Microsoft.Insights/actionGroups",
+      "apiVersion": "2022-10-01",
+      "name": "[parameters('actionGroupName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "groupShortName": "[parameters('shortName')]",
+        "enabled": true,
+        "emailReceivers": [
+          {
+            "name": "EmailReceiver",
+            "emailAddress": "[parameters('emailAddress')]",
+            "useCommonAlertSchema": true
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Insights/metricAlerts",
+      "apiVersion": "2023-01-01-preview",
+      "name": "[parameters('metricAlertName')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Insights/actionGroups', parameters('actionGroupName'))]"
+      ],
+      "properties": {
+        "description": "Alert when average CPU exceeds threshold.",
+        "severity": "[parameters('severity')]",
+        "enabled": true,
+        "scopes": [ "[variables('vmssResourceId')]" ],
+        "evaluationFrequency": "PT1M",
+        "windowSize": "PT5M",
+        "criteria": {
+          "allOf": [
+            {
+              "metricName": "Percentage CPU",
+              "metricNamespace": "",
+              "timeAggregation": "Average",
+              "operator": "GreaterThan",
+              "threshold": "[parameters('cpuThreshold')]",
+              "criterionType": "StaticThresholdCriterion"
+            }
+          ]
+        },
+        "autoMitigate": true,
+        "actions": [
+          { "actionGroupId": "[resourceId('Microsoft.Insights/actionGroups', parameters('actionGroupName'))]" }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Insights/activityLogAlerts",
+      "apiVersion": "2020-10-01",
+      "name": "[parameters('activityAlertName')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Insights/actionGroups', parameters('actionGroupName'))]"
+      ],
+      "properties": {
+        "enabled": true,
+        "scopes": [ "[resourceGroup().id]" ],
+        "condition": {
+          "allOf": [
+            {
+              "field": "category",
+              "equals": "Autoscale"
+            }
+          ]
+        },
+        "actions": {
+          "actionGroups": [
+            { "actionGroupId": "[resourceId('Microsoft.Insights/actionGroups', parameters('actionGroupName'))]" }
+          ]
+        },
+        "description": "Notify when autoscale events occur."
+      }
+    }
+  ],
+
+  "outputs": {
+    "actionGroupId": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.Insights/actionGroups', parameters('actionGroupName'))]"
+    },
+    "metricAlertId": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.Insights/metricAlerts', parameters('metricAlertName'))]"
+    }
+  },
+
+  "__comment__": [
+    "=========================================================",
+    "Line-by-Line Explanation:",
+    "",
+    "1. PARAMETERS",
+    "   • emailAddress → where notifications are sent.",
+    "   • metricAlertName & activityAlertName → separate alert rules.",
+    "   • cpuThreshold & severity → define the trigger and importance level.",
+    "",
+    "2. VARIABLES",
+    "   • vmssResourceId builds the resource ID for the target VMSS.",
+    "",
+    "3. RESOURCES",
+    "   a) Microsoft.Insights/actionGroups:",
+    "        - Defines notification destinations.",
+    "        - Here we create an email receiver with common alert schema.",
+    "",
+    "   b) Microsoft.Insights/metricAlerts:",
+    "        - Monitors Percentage CPU every minute.",
+    "        - Triggers when average CPU > 80% for 5 minutes.",
+    "        - Sends an email via the action group.",
+    "",
+    "   c) Microsoft.Insights/activityLogAlerts:",
+    "        - Watches Azure Activity Log events.",
+    "        - Category 'Autoscale' captures scale-in/out actions.",
+    "        - Notifies the same Action Group.",
+    "",
+    "4. OUTPUTS",
+    "   • IDs of created Action Group and Alerts for reference or cleanup.",
+    "",
+    "---------------------------------------------------------",
+    "Deployment Example (Azure CLI):",
+    "",
+    "az group create --name DemoLab-RG --location canadacentral",
+    "az deployment group create \\",
+    "  --resource-group DemoLab-RG \\",
+    "  --template-file IaC-Scripts/ARM/monitoring-and-alerts-arm.json",
+    "",
+    "---------------------------------------------------------",
+    "Concepts Recap:",
+    "• Action Groups centralize notification destinations (email, SMS, webhook, etc.).",
+    "• Metric Alerts track real-time resource metrics.",
+    "• Activity Log Alerts track Azure events like autoscale, resource updates, or deletions.",
+    "• This template makes the system observable without any manual portal setup.",
+    "",
+    "Result:",
+    "  - You’ll receive an email when CPU usage spikes or when autoscale triggers.",
+    "========================================================="
+  ]
+}
