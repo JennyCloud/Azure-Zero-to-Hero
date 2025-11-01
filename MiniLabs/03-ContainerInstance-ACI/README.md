@@ -25,8 +25,6 @@ This setup demonstrates how Azure manages container orchestration and networking
 ## 📸 Result
 After deployment, browsing to the container’s public IP or FQDN displayed a blue **“Welcome to Azure Container Instances”** page — confirming a successful deployment.
 
-![screenshot](./03-ContainerInstance-Output.png)
-
 ---
 
 ## 🧰 Troubleshooting I Did
