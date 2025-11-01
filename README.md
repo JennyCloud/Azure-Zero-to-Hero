@@ -5,7 +5,7 @@
 ---
 
 ## 🧭 Overview
-This repo tracks my hands-on journey in Microsoft Azure — building and managing real-world environments like a **junior cloud admin** or **MSP engineer**.  
+This repo documents my hands-on journey in Microsoft Azure — building and managing real-world environments like a **junior cloud administrator** or **MSP engineer**.  
 Each lab focuses on deployment, automation, and troubleshooting.
 
 ---
@@ -16,6 +16,7 @@ Each lab focuses on deployment, automation, and troubleshooting.
 |:--|:--|
 | **[Azure-RealWorld-Labs](./Azure-RealWorld-Labs/)** | Practical, production-style Azure labs. |
 | **[MiniLabs](./MiniLabs/)** | Short, focused labs for quick practice. |
+| **[IaC-Scripts](./IaC-Scripts/)** | Infrastructure-as-Code examples using PowerShell, Bash, ARM, and more. |
 
 ---
 
@@ -29,13 +30,13 @@ Each lab focuses on deployment, automation, and troubleshooting.
 ---
 
 ## 🧰 Tools
-Azure Portal · PowerShell (Az) · ARM/Bicep
+PowerShell (Az) · Bash (Azure CLI) · ARM/Bicep · Azure Portal
 
 ---
 
 ## 🧠 Focus Areas
-- Hybrid & cloud-native setup  
-- Security & access control  
+- Hybrid and cloud-native setups  
+- Security and access control  
 - Connectivity troubleshooting  
 - Infrastructure automation  
 - MSP-style documentation  
