@@ -1,4 +1,4 @@
-# ☁️ Lab 3 – Azure Container Instance (ACI)
+# ☁️ Lab 3 – Azure Container Instance (ACI)(Bash)
 
 ## 🧠 Overview
 This mini lab demonstrates how to deploy a lightweight, publicly accessible container in **Azure** without managing any virtual machines.  
