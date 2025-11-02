@@ -1,4 +1,4 @@
-# ⚙️ Azure VM Redeploy & IP Behavior Explained
+# ⚙️ Azure VM Redeploy & IP Behavior
 
 **Author:** Jenny Wang (@JennyCloud)  
 **Category:** Azure Infrastructure | VM Management | Troubleshooting  
