@@ -1,7 +1,6 @@
 # 🎓 Certification Prep — Azure Exams
 
 **Author:** Jenny Wang (@JennyCloud)  
-**Repo:** [Azure-Zero-to-Hero](../)  
 **Focus:** Study notes, architecture breakdowns, and practice explanations for Microsoft Azure certification exams.
 
 ---
