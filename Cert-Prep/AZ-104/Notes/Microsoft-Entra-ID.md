@@ -314,4 +314,4 @@ Together, these make Entra ID not just a directory, but a *governance engine* fo
 
 ---
 
-**End of File — Microsoft Entra AD**
+**End of File — Microsoft Entra ID**
