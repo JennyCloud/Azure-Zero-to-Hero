@@ -5,7 +5,7 @@
 ---
 
 ## 🧭 Overview
-This repo documents my hands-on journey in Microsoft Azure — building and managing real-world environments like a **junior cloud administrator** or **MSP engineer**.  
+This repo documents my hands-on journey in Microsoft Azure — building and managing real-world environments like a **azure administrator** or **cloud engineer**.  
 Each lab focuses on deployment, automation, and troubleshooting.
 
 ---
@@ -17,6 +17,7 @@ Each lab focuses on deployment, automation, and troubleshooting.
 | **[Azure-RealWorld-Labs](./Azure-RealWorld-Labs/)** | Practical, production-style Azure labs. |
 | **[MiniLabs](./MiniLabs/)** | Short, focused labs for quick practice. |
 | **[IaC-Scripts](./IaC-Scripts/)** | Infrastructure-as-Code examples using PowerShell, Bash, ARM, and more. |
+| **[Cert-Prep](./Cert-Prep/)** | Study notes and structured prep materials for Azure certifications. |
 
 ---
 
