@@ -1,4 +1,4 @@
-# 🔐 Microsoft Entra ID — Admin Roles, PIM, and Governance Deep Dive
+# 🔐 Microsoft Entra ID — Admin Roles, PIM, and Governance
 
 **Author:** Jenny Wang (@JennyCloud)  
 **Focus:** Understanding how Microsoft Entra (Azure AD) handles admin roles, privileges, app consent, and identity governance.  
