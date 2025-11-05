@@ -1,7 +1,7 @@
 # 🧭 Lab 06 – Azure DNS Auto-Registration (Public vs. Private)
 
 ## 🎯 Goal
-Understand how Azure handles **auto-registration** in **Private DNS Zones** versus **manual record management** in **Public DNS Zones**, and explore what happens when your “test domain” actually exists on the Internet.
+Understand how Azure handles **auto-registration** in **Private DNS Zones** versus **manual record management** in **Public DNS Zones**.
 
 ---
 
