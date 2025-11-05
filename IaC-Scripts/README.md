@@ -14,6 +14,7 @@ Each subfolder showcases a different approach or perspective on Azure automation
 | **PowerShell** | Az PowerShell module | Full automation and scripting control — ideal for administrators managing hybrid or Windows-heavy environments. |
 | **Bash** | Azure CLI | Lightweight and cross-platform — perfect for quick deployments, scripting in Cloud Shell, or Linux-based workflows. |
 | **ARM** | JSON templates | Declarative Infrastructure-as-Code for consistent, version-controlled deployments. |
+| **Bicep** | Modern ARM DSL | A simplified, human-readable language that compiles to ARM templates — used for modular, repeatable, and cleaner IaC design directly supported by Microsoft. |
 | **Tools-Comparison** | Conceptual guides | Comparison and roadmap documents explaining how tools like PowerShell, Bash, ARM, Bicep, Terraform, and Copilot relate in the automation ecosystem. |
 
 ---
@@ -31,7 +32,7 @@ Each subfolder showcases a different approach or perspective on Azure automation
 ## 🧰 Skills Demonstrated
 
 - Azure PowerShell & CLI scripting  
-- Infrastructure as Code with ARM  
+- Infrastructure as Code with ARM & Bicep  
 - Tool comparison and automation strategy design  
 - DevOps and CI/CD pipeline readiness  
 - Cloud resource lifecycle and monitoring automation  
