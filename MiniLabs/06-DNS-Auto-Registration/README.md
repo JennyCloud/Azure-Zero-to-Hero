@@ -64,7 +64,7 @@ Meanwhile, `vm1.contosotest.com` surprisingly resolves to **45.41.88.73**, a pub
 - `vm1.fabrikam.com` was resolved *inside Azure* through the Private DNS Zone linked to the VNet.  
 - `vm1.contosotest.com` wasn’t found in Azure, so the query was forwarded to **public DNS root servers**, which returned a **real Internet record** belonging to someone else.
 
-That means `contosotest.com` is an *actual public domain*, and your VM just looked it up globally.
+That means `contosotest.com` is an *actual public domain*, and my VM just looked it up globally.
 
 ---
 
