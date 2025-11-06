@@ -13,14 +13,8 @@ Deploy 10 identical Azure Virtual Machines using a Bicep loop. Each VM gets its 
 
 ---
 ### Deployment
-
-# Log in
 az login
-
-# Choose your resource group
 az group create -n BicepVMFleet-RG -l eastus
-
-# Deploy
 az deployment group create \
   --resource-group BicepVMFleet-RG \
   --template-file main.bicep \
