@@ -12,15 +12,6 @@ Deploy 10 identical Azure Virtual Machines using a Bicep loop. Each VM gets its 
 - **Parameterization:** VM size, image, and credentials are reusable.
 
 ---
-### Deployment
-az login
-az group create -n BicepVMFleet-RG -l eastus
-az deployment group create \
-  --resource-group BicepVMFleet-RG \
-  --template-file main.bicep \
-  --parameters @parameters.json
-
----
 
 ### Verification
 In the Azure Portal:
@@ -31,4 +22,9 @@ In the Azure Portal:
 
 ### Clean Up
 az group delete -n BicepVMFleet-RG --yes --no-wait
+
+---
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FJennyCloud%2FAzure-Lab-Portfolio-AZ104%2Fmain%2FMiniLabs%2F08-Bicep-VM-Fleet%2Fmain.bicep)
+
 
