@@ -25,6 +25,6 @@ az group delete -n BicepVMFleet-RG --yes --no-wait
 
 ---
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FJennyCloud%2FAzure-Lab-Portfolio-AZ104%2Fmain%2FMiniLabs%2F08-Bicep-VM-Fleet%2Fmain.bicep)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FJennyCloud%2FAzure-Zero-to-Hero%2Fmain%2FMiniLabs%2F08-Bicep-VM-Fleet%2Fmain.bicep)
 
 
