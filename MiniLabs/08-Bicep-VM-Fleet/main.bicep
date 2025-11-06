@@ -9,7 +9,7 @@ param adminPassword string
 param location string = resourceGroup().location
 
 @description('Number of VMs to deploy')
-param vmCount int = 10
+param vmCount int = 3
 
 @description('VM size')
 param vmSize string = 'Standard_B1s'
@@ -36,13 +36,6 @@ resource vnet 'Microsoft.Network/virtualNetworks@2023-05-01' = {
   }
 }
 
-resource publicIPs 'Microsoft.Network/publicIPAddresses@2023-05-01' = [for i in range(1, vmCount + 1): {
-  name: 'vm${i}-pip'
-  location: location
-  sku: { name: 'Basic' }
-  properties: { publicIPAllocationMethod: 'Dynamic' }
-}]
-
 resource nics 'Microsoft.Network/networkInterfaces@2023-05-01' = [for i in range(1, vmCount + 1): {
   name: 'vm${i}-nic'
   location: location
@@ -55,9 +48,6 @@ resource nics 'Microsoft.Network/networkInterfaces@2023-05-01' = [for i in range
             id: vnet.properties.subnets[0].id
           }
           privateIPAllocationMethod: 'Dynamic'
-          publicIPAddress: {
-            id: publicIPs[i - 1].id
-          }
         }
       }
     ]
