@@ -1,4 +1,4 @@
-# 🚀 08 – Bicep VM Fleet (No Public IP Edition)
+# 🚀 Mini Lab 08 – Bicep VM Fleet (No Public IP Edition)
 
 ### 🎯 Goal
 Deploy a fleet of internal-only Azure Virtual Machines (no public IPs) using a single **Bicep loop**.  
