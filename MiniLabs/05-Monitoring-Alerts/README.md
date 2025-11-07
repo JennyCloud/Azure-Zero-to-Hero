@@ -1,4 +1,4 @@
-# 📊 Lab 5 – Monitoring & Alerts (Activity Log)
+# 📊 Mini Lab 5 – Monitoring & Alerts (Activity Log)
 
 ## 🧠 Overview
 This lab demonstrates how to monitor Azure resources using **Activity Log Alerts** and **Action Groups**.  
