@@ -29,13 +29,9 @@ This lab demonstrates scalable Infrastructure as Code, resource dependencies, an
 - **Issue:** Cloud Shell couldn’t deploy the Bicep file directly from GitHub and returned *“Failed to parse JSON”* errors.  
 - **Fix:** Switched to local PowerShell, used `bicep build` to compile the `.bicep` file into `.json`, then deployed using `New-AzResourceGroupDeployment`.
 
----
-
 **2. QuotaExceeded and ResourceCountExceedsLimitDueToTemplate**
 - **Issue:** The original deployment with 10 VMs failed because the subscription only allowed **3 Public IPs** and **4 cores per region**.  
 - **Fix:** Reduced `vmCount` from 10 → 3 and then removed public IP creation completely to stay within quotas.  
-
----
 
 **3. SKU not available in East US**
 - **Issue:** The selected VM size `Standard_B1s` was unavailable in *EastUS*.  
@@ -58,10 +54,3 @@ This lab demonstrates scalable Infrastructure as Code, resource dependencies, an
 ✔ Loop-based IaC design  
 ✔ Network & quota troubleshooting  
 ✔ GitHub-to-Azure deployment pipeline
-
----
-
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](
-  https://portal.azure.com/#create/Microsoft.Template/uri/
-  https%3A%2F%2Fraw.githubusercontent.com%2FJennyCloud%2FAzure-Zero-to-Hero%2Fmain%2FMiniLabs%2F08-Bicep-VM-Fleet%2Fmain.bicep
-)
