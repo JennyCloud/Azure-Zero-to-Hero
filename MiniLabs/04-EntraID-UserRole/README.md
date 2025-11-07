@@ -1,4 +1,4 @@
-# 🔐 Lab 4 – Microsoft Entra ID User + Role
+# 🔐 Mini Lab 4 – Microsoft Entra ID User + Role
 
 ## 🧠 Overview
 This lab demonstrates how to create and manage a user in **Microsoft Entra ID (formerly Azure Active Directory)** using **PowerShell** and assign them a **Reader** role at the resource group level.  
