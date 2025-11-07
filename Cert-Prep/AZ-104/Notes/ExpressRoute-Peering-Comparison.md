@@ -1,7 +1,5 @@
 # ☁️ ExpressRoute Peering Comparison and Microsoft Public Access Options    
 
----
-
 ## 🔸 Private Peering vs Microsoft Peering
 
 Azure **ExpressRoute** offers multiple peering types — each designed for different traffic paths between on-premises networks and Microsoft’s cloud.  
