@@ -16,7 +16,7 @@ Each lab focuses on deployment, automation, and troubleshooting.
 |:--|:--|
 | **[Azure-RealWorld-Labs](./Azure-RealWorld-Labs/)** | Practical, production-style Azure labs. |
 | **[MiniLabs](./MiniLabs/)** | Short, focused labs for quick practice. |
-| **[IaC-Scripts](./IaC-Scripts/)** | Infrastructure-as-Code examples using PowerShell, Bash, ARM, and more. |
+| **[IaC-Scripts](./IaC-Scripts/)** | Infrastructure-as-Code examples using PowerShell, Bash, ARM, and Bicep. |
 | **[Cert-Prep](./Cert-Prep/)** | Study notes and structured prep materials for Azure certifications. |
 
 ---
