@@ -1,4 +1,5 @@
-# ☁️ ExpressRoute Peering Comparison and Microsoft Public Access Options    
+# ☁️ ExpressRoute Peering Comparison and Microsoft Public Access Options
+---
 
 ## 🔸 Private Peering vs Microsoft Peering
 
