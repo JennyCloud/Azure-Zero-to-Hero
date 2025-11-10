@@ -23,7 +23,7 @@ Automatically **stop** VMs at **11:00 PM** and **start** them at **7:00 AM** dai
    - `Stop-VMs-11PM` → **Action = Stop** (daily)
    - `Start-VMs-7AM` → **Action = Start** (daily)
 
-> Timezone: schedules use your portal’s local timezone (America/Vancouver).
+> Timezone: schedules use your portal’s local timezone.
 
 ## 🔎 Verification
 - Manually **Start** the runbook with `Action = Stop` and view **Job Output**.
