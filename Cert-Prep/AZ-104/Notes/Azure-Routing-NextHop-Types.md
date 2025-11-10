@@ -1,6 +1,5 @@
 # 🌐 Azure Routing – Next Hop Types Explained
 
-**Author:** Jenny Wang (@JennyCloud)  
 **Topic:** Azure Route Tables (User-Defined Routes)
 
 ---
