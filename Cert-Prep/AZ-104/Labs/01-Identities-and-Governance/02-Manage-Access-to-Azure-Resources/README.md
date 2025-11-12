@@ -4,9 +4,17 @@ This lab demonstrates how to manage access to Azure resources using Role-Based A
 I worked with built-in Azure roles, assign roles at different scopes, and interpret effective permissions.  
 This lab uses only free-tier features and does not require Microsoft Entra Premium or M365 licensing.
 
+## Lab Resources
+https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-104
 
+**Manage Azure identities and governance (20–25%)**
 
-## Real-World RBAC Practices (How Administrators Do This in Actual Work)
+Manage access to Azure resources
+- Manage built-in Azure roles
+- Assign roles at different scopes
+- Interpret access assignments
+
+## Real-World RBAC Practices
 
 In real production environments, RBAC is managed with structured, repeatable processes to ensure security, auditing, and operational efficiency. The following summarizes how Azure administrators typically handle access management.
 
@@ -70,8 +78,6 @@ Clear names reduce confusion and simplify audits.
 ### 8. Activity Logs and Auditing Are Required
 Role changes are tracked through Azure Activity Logs and central SIEM systems.  
 Organizations often perform quarterly or annual access reviews to maintain compliance.
-
----
 
 ## Summary of Real-World Patterns
 
