@@ -1,11 +1,9 @@
-# 🧩 Lab 01 – Manage Microsoft Entra Users and Groups (Free Tier Edition)
-
-## 🎯 Objective
+# Lab 01 – Manage Microsoft Entra Users and Groups (Free Tier Edition)
 
 This lab demonstrates how to manage **Microsoft Entra ID (formerly Azure AD)** users, groups, and guest access using the **Free Tier** of Azure.  
 Even without Microsoft 365 or Premium licenses, we can still explore core identity management concepts hands-on.
 
-## 🧠 Lab Resources
+## Lab Resources
 https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-104
 
 **Manage Azure identities and governance (20–25%)**
@@ -16,7 +14,7 @@ Manage Microsoft Entra users and groups
 - Manage licenses in Microsoft Entra ID
 - Manage external users
 
-## 💡 Real-World Context
+## Real-World Context
 
 In enterprise or MSP environments:
 - **PowerShell and Microsoft Graph API** are used for bulk automation.  
@@ -24,9 +22,7 @@ In enterprise or MSP environments:
 - **Microsoft Entra Connect** syncs on-prem AD users to the cloud.  
 - **Premium features (P1/P2)** add Conditional Access, SSPR for all users, and Identity Governance.  
 
-🧠 *Admins rarely manage users manually — automation and governance policies ensure consistency and security.*
-
-## 🧭 Q&A Highlights
+## Q&A Highlights
 
 | Question | Answer |
 |-----------|---------|
