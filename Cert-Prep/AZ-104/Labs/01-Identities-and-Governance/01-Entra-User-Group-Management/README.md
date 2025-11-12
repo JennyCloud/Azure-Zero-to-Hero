@@ -5,8 +5,6 @@
 This lab demonstrates how to manage **Microsoft Entra ID (formerly Azure AD)** users, groups, and guest access using the **Free Tier** of Azure.  
 Even without Microsoft 365 or Premium licenses, we can still explore core identity management concepts hands-on.
 
----
-
 ## 🧠 Lab Resources
 https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-104
 
@@ -16,7 +14,6 @@ Manage Microsoft Entra users and groups
 - Manage user and group properties
 - Manage licenses in Microsoft Entra ID
 - Manage external users
----
 
 ## 💡 Real-World Context
 
@@ -27,8 +24,6 @@ In enterprise or MSP environments:
 - **Premium features (P1/P2)** add Conditional Access, SSPR for all users, and Identity Governance.  
 
 🧠 *Admins rarely manage users manually — automation and governance policies ensure consistency and security.*
-
----
 
 ## 🧭 Q&A Highlights
 
