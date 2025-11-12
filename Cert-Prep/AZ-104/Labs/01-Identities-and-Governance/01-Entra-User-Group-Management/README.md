@@ -9,6 +9,7 @@ Even without Microsoft 365 or Premium licenses, we can still explore core identi
 
 ## 🧠 Lab Resources
 https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-104
+
 **Manage Azure identities and governance (20–25%)**
 Manage Microsoft Entra users and groups
 - Create users and groups
