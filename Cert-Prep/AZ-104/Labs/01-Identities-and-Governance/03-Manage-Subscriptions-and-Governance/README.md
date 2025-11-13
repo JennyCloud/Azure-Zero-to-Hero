@@ -5,9 +5,19 @@ The configuration aligns with real MSP and enterprise governance practices and r
 
 ---
 
-## Learning Outcomes
+## Lab Resources
+https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-104
 
+**Manage Azure identities and governance (20–25%)**
 
+Manage Azure subscriptions and governance
+- Implement and manage Azure Policy
+- Configure resource locks
+- Apply and manage tags on resources
+- Manage resource groups
+- Manage subscriptions
+- Manage costs by using alerts, budgets, and Azure Advisor recommendations
+- Configure management groups
 
 ---
 
@@ -52,8 +62,6 @@ Examples:
 
 This ensures consistency across large environments.
 
----
-
 ### 2. Tags Drive Cost Accountability  
 Organizations depend heavily on tags to identify:
 
@@ -65,12 +73,8 @@ Organizations depend heavily on tags to identify:
 
 Missing tags cause financial reporting gaps, so admins enforce them through policy.
 
----
-
 ### 3. Locks Protect Critical Workloads  
 Admins place Delete or ReadOnly locks on high-value resources such as databases, VNets, or production resource groups to prevent accidental outages.
-
----
 
 ### 4. Policy Prevents Human Error  
 Azure Policy automatically blocks deployments that violate organizational standards.  
@@ -85,8 +89,6 @@ Admins use it to enforce:
 
 Policy is the safety net that keeps environments compliant.
 
----
-
 ### 5. Budgets Prevent Unexpected Charges  
 Budgets and alerts help admins catch cost spikes early, such as:
 
@@ -96,8 +98,6 @@ Budgets and alerts help admins catch cost spikes early, such as:
 - Over-sized VMs  
 
 Alerts notify teams before the monthly bill becomes a problem.
-
----
 
 ### 6. Advisor Recommendations Are Reviewed Regularly  
 Organizations review Azure Advisor monthly for:
@@ -109,15 +109,11 @@ Organizations review Azure Advisor monthly for:
 
 These insights feed into operational and financial reporting.
 
----
-
 ### 7. Management Groups Provide Structure  
 Management Groups serve as top-level folders.  
 Admins use them to separate workloads by customer, environment, department, or compliance boundary.
 
 Policies and RBAC applied here cascade down automatically.
-
----
 
 ### 8. Governance Is Automated Using IaC  
 In real-world environments, governance baselines are deployed through:
@@ -129,29 +125,4 @@ In real-world environments, governance baselines are deployed through:
 - Azure DevOps Pipelines  
 
 Automation ensures reproducibility and prevents configuration drift.
-
----
-
-# Screenshots Collected in This Lab
-
-This lab includes screenshots of:
-
-- Resource Groups  
-- Tags  
-- Resource Locks  
-- Azure Policy assignments and denial errors  
-- Compliance reports  
-- Budgets  
-- Advisor dashboard  
-- Management Group hierarchy  
-- Subscription overview  
-
-These demonstrate governance configuration and support portfolio documentation.
-
----
-
-# End of Lab
-
-This governance baseline reflects how real Azure cloud environments are structured, protected, monitored, and optimized.  
-It prepares you for advanced AZ-104 scenarios involving RBAC, automation, monitoring, and compliance.
 
