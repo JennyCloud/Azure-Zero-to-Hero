@@ -1,16 +1,18 @@
-# Lab 2 – Implement and Manage Azure Storage (Free-Tier Edition)
+# Lab 2 – Implement and Manage Azure Storage
 
-## Lab Summary
 This lab demonstrates how to deploy, configure, and manage Azure Storage using the Azure Portal and operational tools such as Storage Explorer and AzCopy. I configured redundancy, enable data-protection settings, set up Object Replication between two storage accounts, and implement Customer-Managed Keys (CMK) using Azure Key Vault. The lab mirrors real-world cloud administration practices and aligns with AZ-104 exam objectives.
 
-## Objectives
-- Create and configure Azure Storage accounts  
-- Configure LRS, ZRS, GRS, and RA-GRS redundancy  
-- Enable versioning, soft delete, and change feed  
-- Configure Object Replication between accounts  
-- Configure storage encryption using Customer-Managed Keys  
-- Manage data using Azure Storage Explorer  
-- Upload/download blobs using AzCopy  
+## Lab Resources
+https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-104
+
+**Implement and manage storage (15–20%)**
+
+Configure and manage storage accounts
+- Create and configure storage accounts
+- Configure Azure Storage redundancy
+- Configure object replication
+- Configure storage account encryption
+- Manage data by using Azure Storage Explorer and AzCopy
 
 ## Real-World Administrator Practices
 
