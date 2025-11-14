@@ -2,8 +2,6 @@
 
 This document explains how Azure administrators actually secure and manage access to storage accounts in production environments. These notes complement the AZ-104 lab on storage firewalls, SAS tokens, stored access policies, access keys, and Azure Files identity-based access.
 
----
-
 ## 1. Storage Firewalls & Virtual Networks
 In production environments, storage accounts are never left open to `All Networks`.  
 Admins restrict access using:
@@ -21,8 +19,6 @@ All public traffic → Blocked
 
 If a request comes from outside the trusted VNet, it is denied.
 
----
-
 ## 2. SAS Tokens (Shared Access Signatures)
 SAS tokens provide temporary delegated access. Admins treat them as high-risk and enforce:
 
@@ -36,8 +32,6 @@ SAS tokens provide temporary delegated access. Admins treat them as high-risk an
 ### Real-World Use
 A data pipeline uploads files for 10 minutes using a SAS that expires immediately afterward.
 
----
-
 ## 3. Stored Access Policies
 Stored Access Policies provide centralized control for SAS:
 
@@ -48,8 +42,6 @@ Stored Access Policies provide centralized control for SAS:
 
 ### Real Benefit
 One stored access policy can manage all SAS tokens used by an entire team or application.
-
----
 
 ## 4. Access Keys
 Access keys provide full administrative access to a storage account. Admins avoid them whenever possible.
@@ -63,8 +55,6 @@ Access keys provide full administrative access to a storage account. Admins avoi
 
 ### Best Practice
 Disable “Allow storage account key access” unless absolutely necessary.
-
----
 
 ## 5. Azure Files Identity-Based Access
 Azure AD identity-based access replaces passwords and keys.
@@ -82,8 +72,6 @@ Admins assign RBAC roles to users or groups:
 4. Disabling the user’s account removes access automatically.
 
 This aligns with enterprise IAM and eliminates secret rotation.
-
----
 
 ## 6. Automation
 Real-world Azure storage administration is automated using:
@@ -105,8 +93,6 @@ A GitHub Actions workflow deploys storage with:
 - Diagnostic logging  
 - Security baselines  
 
----
-
 ## 7. How Real Work Differs from Labs
 Labs teach:
 - SAS  
@@ -124,8 +110,6 @@ Real work adds:
 
 Labs build the foundation; production environments add security and scale.
 
----
-
 ## Summary
 Azure storage security in the real world relies on:
 
@@ -133,6 +117,4 @@ Azure storage security in the real world relies on:
 - Private access over public endpoints  
 - Automation over manual operations  
 - Policies and governance over ad-hoc configuration  
-
-These practices align with enterprise, MSP, and cloud security best practices and support AZ-104 and AZ-305 skills.
 
