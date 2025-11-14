@@ -1,7 +1,6 @@
 # Lab 01 – Configure Access to Azure Storage
 
-This lab demonstrates how to configure secure access to Azure Storage using firewall rules, SAS tokens, stored access policies, access keys, and Azure AD identity-based access for Azure Files.  
-All steps use free-tier features.
+This lab demonstrates how to configure secure access to Azure Storage using firewall rules, SAS tokens, stored access policies, access keys, and Azure AD identity-based access for Azure Files. All steps use free-tier features.
 
 ## Lab Resources
 https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-104
