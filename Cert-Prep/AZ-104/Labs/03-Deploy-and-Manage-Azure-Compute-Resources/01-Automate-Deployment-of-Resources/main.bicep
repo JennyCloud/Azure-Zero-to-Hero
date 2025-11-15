@@ -42,8 +42,10 @@ resource vnet 'Microsoft.Network/virtualNetworks@2023-09-01' = {
     addressSpace: {
       addressPrefixes: [
         '10.0.0.0/16'
+
         // Modification 4: Expand the VNet Address Space
         '10.1.0.0/16'
+
       ]
     }
     subnets: [
