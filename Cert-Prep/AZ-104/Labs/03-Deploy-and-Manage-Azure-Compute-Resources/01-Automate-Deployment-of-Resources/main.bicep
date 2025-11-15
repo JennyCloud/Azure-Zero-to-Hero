@@ -30,6 +30,7 @@ var pipName = '${vmName}-pip'
 resource vnet 'Microsoft.Network/virtualNetworks@2023-09-01' = {
   name: vnetName
   location: location
+
   // Modification 1: Add Resource Tags
   tags: {
     environment: 'lab'
@@ -77,6 +78,7 @@ resource nsg 'Microsoft.Network/networkSecurityGroups@2023-09-01' = {
           destinationAddressPrefix: '*'
         }
       }
+
       // Modification 3: Add a New NSG Rule (Allow HTTP on Port 80)
       {
               name: 'AllowHTTP'
@@ -91,6 +93,7 @@ resource nsg 'Microsoft.Network/networkSecurityGroups@2023-09-01' = {
                 destinationAddressPrefix: '*'
         }
       }
+
     ]
   }
 }
@@ -130,6 +133,7 @@ resource nic 'Microsoft.Network/networkInterfaces@2023-09-01' = {
 resource vm 'Microsoft.Compute/virtualMachines@2023-09-01' = {
   name: vmName
   location: location
+
   // Modification 1: Add Resource Tags
   tags: {
     environment: 'lab'
