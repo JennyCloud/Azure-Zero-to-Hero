@@ -12,11 +12,13 @@ param adminPassword string
 param vmName string = 'labvm01'
 
 @description('VM Size')
+
 // Modification 2: Change the VM Size
 // param vmSize string = 'Standard_B1s'
 param vmSize string = 'Standard_B2s'
 
 @description('Linux image to use')
+
 // Modification 2: Change the OS Image
 // param linuxImage string = 'Ubuntu2204'
 param linuxImage string = 'Ubuntu2404'
