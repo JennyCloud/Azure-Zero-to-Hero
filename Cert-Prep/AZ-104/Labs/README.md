@@ -4,7 +4,9 @@ This folder contains hands-on labs I completed while preparing for the **Microso
 The labs focus on building real skills across compute, networking, storage, identity, and automation.
 
 Most labs were completed using the **Azure Portal** so I can build confidence with manual configuration and understand how Azure services behave visually.  
+
 For selected scenarios, I also used **automation (Bicep + GitHub Actions)** to practice real-world Infrastructure-as-Code workflows.
+
 **Lab:**  
 📌 **[03-Deploy-and-Manage-Azure-Compute-Resources / 01-Automate-Deployment-of-Resources](03-Deploy-and-Manage-Azure-Compute-Resources/01-Automate-Deployment-of-Resources/)**
 
