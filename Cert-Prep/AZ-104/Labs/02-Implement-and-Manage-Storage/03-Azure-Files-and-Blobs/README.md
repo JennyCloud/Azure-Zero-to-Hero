@@ -1,11 +1,16 @@
 # Lab 3 – Configure Azure Files and Azure Blob Storage  
 
-## 🧱 Lab Architecture
+## Lab Resources
+https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-104
 
-You will work within a single Storage Account and configure:
+**Implement and manage storage (15–20%)**
 
-- **Azure Files** (SMB share + snapshot + soft delete)  
-- **Blob Storage** (container + versioning + soft delete + lifecycle rules)  
-- **Access** using Portal + SAS  
-- **Management** features used daily by Azure Administrators
+Configure Azure Files and Azure Blob Storage
+- Create and configure a file share in Azure Storage
+- Create and configure a container in Blob Storage
+- Configure storage tiers
+- Configure soft delete for blobs and containers
+- Configure snapshots and soft delete for Azure Files
+- Configure blob lifecycle management
+- Configure blob versioning
 
