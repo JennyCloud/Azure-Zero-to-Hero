@@ -1,0 +1,36 @@
+name: Cert-Prep AZ-104 Lab 03-01 – Automate Deployment of Resources
+
+on:
+  push:
+    paths:
+      - 'Cert-Prep/AZ-104/Labs/03-Deploy-and-Manage-Azure-Compute-Resources/01-Automate-Deployment-of-Resources/**'
+      - '.github/workflows/cert-prep-az104-labs-03-01-deploy.yml'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Login to Azure using OIDC
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Deploy Bicep file
+        uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          resourceGroupName: ${{ secrets.AZURE_RG }}
+          template: Cert-Prep/AZ-104/Labs/03-Deploy-and-Manage-Azure-Compute-Resources/01-Automate-Deployment-of-Resources/main.bicep
+          parameters: >
+            adminPassword=${{ secrets.ADMINPASSWORD }}
+          failOnStdErr: false
