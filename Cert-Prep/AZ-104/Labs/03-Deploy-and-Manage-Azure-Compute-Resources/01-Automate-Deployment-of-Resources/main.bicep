@@ -18,10 +18,7 @@ param vmName string = 'labvm01'
 param vmSize string = 'Standard_B2s'
 
 @description('Linux image to use')
-
-// Modification 2: Change the OS Image
-// param linuxImage string = 'Ubuntu2204'
-param linuxImage string = 'Ubuntu2404'
+param linuxImage string = 'Ubuntu2204'
 
 var vnetName = '${vmName}-vnet'
 var subnetName = 'default'
