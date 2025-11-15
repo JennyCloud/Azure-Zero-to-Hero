@@ -100,10 +100,10 @@ resource pip 'Microsoft.Network/publicIPAddresses@2023-09-01' = {
   name: pipName
   location: location
   sku: {
-    name: 'Basic'
+    name: 'Standard'
   }
   properties: {
-    publicIPAllocationMethod: 'Dynamic'
+    publicIPAllocationMethod: 'Static'
   }
 }
 
