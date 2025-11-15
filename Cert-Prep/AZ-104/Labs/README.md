@@ -10,6 +10,7 @@ For selected scenarios, I also used **automation (Bicep + GitHub Actions)** to p
 **Lab:**  
 📌 **[03-Deploy-and-Manage-Azure-Compute-Resources / 01-Automate-Deployment-of-Resources](03-Deploy-and-Manage-Azure-Compute-Resources/01-Automate-Deployment-of-Resources/)**
 
+## Why Both Portal and Automation?
 I chose to complete most labs in the portal first because:
 - It builds strong foundational knowledge  
 - It’s easier to visualize resources  
@@ -20,3 +21,12 @@ Automation skills were already applied in separate labs, which reflects real Azu
 1. Learn the service in the portal  
 2. Automate it using Bicep/ARM/pipelines   
 
+## 🔗 Related Work in My Repo
+
+### 🌐 **Real-World Azure Labs (Advanced & MSP Style)**  
+These labs simulate real enterprise/MSP tasks using architecture diagrams, troubleshooting, IaC, and automation.  
+**[Azure-Zero-to-Hero / Azure-RealWorld-Labs](../../../Azure-RealWorld-Labs/)**
+
+### ⚡ **Mini Labs (Short, Focused, Fast Practice)**  
+Hands-on micro labs using PowerShell, Bicep, Azure CLI, and GitHub Actions.  
+**[Azure-Zero-to-Hero / MiniLabs](../../../MiniLabs/)**
