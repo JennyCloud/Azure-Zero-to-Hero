@@ -12,10 +12,14 @@ param adminPassword string
 param vmName string = 'labvm01'
 
 @description('VM Size')
-param vmSize string = 'Standard_B1s'
+// Modification 2: Change the VM Size
+// param vmSize string = 'Standard_B1s'
+param vmSize string = 'Standard_B2s'
 
 @description('Linux image to use')
-param linuxImage string = 'Ubuntu2204'
+// Modification 2: Change the OS Image
+// param linuxImage string = 'Ubuntu2204'
+param linuxImage string = 'Ubuntu2404'
 
 var vnetName = '${vmName}-vnet'
 var subnetName = 'default'
@@ -26,10 +30,19 @@ var pipName = '${vmName}-pip'
 resource vnet 'Microsoft.Network/virtualNetworks@2023-09-01' = {
   name: vnetName
   location: location
+  // Modification 1: Add Resource Tags
+  tags: {
+    environment: 'lab'
+    owner: 'jennycloud'
+    purpose: 'az104-compute-lab'
+  }
+
   properties: {
     addressSpace: {
       addressPrefixes: [
         '10.0.0.0/16'
+        // Modification 4: Expand the VNet Address Space
+        '10.1.0.0/16'
       ]
     }
     subnets: [
@@ -62,6 +75,20 @@ resource nsg 'Microsoft.Network/networkSecurityGroups@2023-09-01' = {
           destinationPortRange: '22'
           sourceAddressPrefix: '*'
           destinationAddressPrefix: '*'
+        }
+      }
+      // Modification 3: Add a New NSG Rule (Allow HTTP on Port 80)
+      {
+              name: 'AllowHTTP'
+              properties: {
+                priority: 1100
+                direction: 'Inbound'
+                access: 'Allow'
+                protocol: 'Tcp'
+                sourcePortRange: '*'
+                destinationPortRange: '80'
+                sourceAddressPrefix: '*'
+                destinationAddressPrefix: '*'
         }
       }
     ]
@@ -103,6 +130,13 @@ resource nic 'Microsoft.Network/networkInterfaces@2023-09-01' = {
 resource vm 'Microsoft.Compute/virtualMachines@2023-09-01' = {
   name: vmName
   location: location
+  // Modification 1: Add Resource Tags
+  tags: {
+    environment: 'lab'
+    owner: 'jennycloud'
+    purpose: 'az104-compute-lab'
+  }
+
   properties: {
     hardwareProfile: {
       vmSize: vmSize
