@@ -17,9 +17,6 @@ param vmName string = 'labvm01'
 // param vmSize string = 'Standard_B1s'
 param vmSize string = 'Standard_B2s'
 
-@description('Linux image to use')
-param linuxImage string = 'Ubuntu2204'
-
 var vnetName = '${vmName}-vnet'
 var subnetName = 'default'
 var nsgName = '${vmName}-nsg'
@@ -156,10 +153,12 @@ resource vm 'Microsoft.Compute/virtualMachines@2023-09-01' = {
     }
     storageProfile: {
       imageReference: {
+       
         publisher: 'Canonical'
-        offer: '0001-com-ubuntu-server-jammy'
-        sku: linuxImage
+        offer: 'UbuntuServer'
+        sku: '22_04-lts'
         version: 'latest'
+
       }
       osDisk: {
         createOption: 'FromImage'
