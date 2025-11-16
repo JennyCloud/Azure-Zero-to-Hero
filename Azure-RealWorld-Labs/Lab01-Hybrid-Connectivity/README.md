@@ -4,21 +4,17 @@
 
 *Simulating secure site-to-site VPN connectivity between Azure and an on-premises network.*
 
----
-
 ## 🎯 Purpose
 Create a realistic hybrid network scenario that mirrors how Managed Service Providers (MSPs) link on-premises client infrastructure to Azure using IPsec VPN gateways.  
 This lab demonstrates VNet design, gateway deployment, routing, and end-to-end troubleshooting.
 
----
-
 ## 🧱 Architecture Overview
 | Component | Details |
 |------------|----------|
-| **Azure VNet** | `Azure-VNet` – 10.10.0.0/16 with `VMSubnet` and `GatewaySubnet` |
-| **On-Prem VNet (Simulated)** | `OnPrem-VNet` – 192.168.1.0/24 with `OnPremSubnet` and `GatewaySubnet` |
-| **Gateways** | Two route-based VPN gateways (SKU :`VpnGw1`) |
-| **Connections** | VNet-to-VNet using shared key `Lab123!SharedKey` |
+| **Azure VNet** | 'Azure-VNet' – 10.10.0.0/16 with 'VMSubnet' and 'GatewaySubnet' |
+| **On-Prem VNet (Simulated)** | 'OnPrem-VNet' – 192.168.1.0/24 with 'OnPremSubnet' and 'GatewaySubnet' |
+| **Gateways** | Two route-based VPN gateways (SKU :'VpnGw1') |
+| **Connections** | VNet-to-VNet using shared key 'Lab123!SharedKey' |
 | **Verification** | Cross-ping between Azure VM and On-Prem VM through VPN tunnel |
 
 
@@ -28,24 +24,12 @@ This lab demonstrates VNet design, gateway deployment, routing, and end-to-end t
 
 *Figure: Site-to-Site VPN between Azure VNet and simulated On-Prem VNet using route-based gateways and test VMs.*
 
----
-
-## 🧩 Tools Used
-- Azure Portal  
-- Azure PowerShell (Cloud Shell)  
-- Azure Bastion Developer SKU  
-- Windows Server 2022 Datacenter (smalldisk image)
-
----
-
 ## ⚙️ Key Steps
 1. **Resource Group:** Created `HybridLab-RG`.  
 2. **Networking:** Built VNets for Azure and On-Prem simulation.  
 3. **Gateways:** Deployed static Standard Public IPs and VPN gateways.  
 4. **Connections:** Established bidirectional VNet-to-VNet links.  
 5. **Verification:** Deployed two Windows VMs and tested cross-ping successfully.  
-
----
 
 ## 🔍 Issues Encountered & Troubleshooting Record
 
@@ -59,31 +43,23 @@ This lab demonstrates VNet design, gateway deployment, routing, and end-to-end t
 | Bastion single-session limit | Developer SKU restriction | Tested sequentially (one VM at a time) |
 | Ping failed (100 % loss) | ICMP blocked by firewall and NSG | Enabled ICMP via `netsh` and added NSG rule for `192.168.1.0/24` |
 
----
-
 ## ✅ Results
 - **VPN Status:** Connected  
 - **Ping Test:** Successful (Verified bi-directional connectivity)  
 - **EgressBytesTransferred:** Non-zero values confirm live traffic  
-- **Evidence:** All scripts and screenshots in `/scripts` and `/screenshots`  
-
----
+- **Evidence:** All scripts and screenshots in '/scripts' and '/screenshots' 
 
 ## 🧠 Knowledge Highlights
 | Skill Area | Demonstrated By |
 |-------------|-----------------|
-| Azure Networking & VPN | `create-vpn-gateway.ps1`, `create-site-to-site.ps1` |
+| Azure Networking & VPN | 'create-vpn-gateway.ps1', 'create-site-to-site.ps1' |
 | Infrastructure Automation | Parameterized PowerShell scripts |
 | Troubleshooting & Diagnostics | Issue log and stepwise resolution documented above |
 | Security & Governance | Minimal exposure design using private IP and NSG rules |
 
----
-
 ## 🧩 Professional Context
 This scenario mirrors MSP operations when onboarding a client’s on-prem data center to Azure.  
 It proves capability in network design, IP planning, VPN configuration, and live troubleshooting under subscription constraints.
-
----
 
 ## 🧭 Lessons Learned
 - Always use **Static Standard** Public IPs for gateways.  
@@ -92,8 +68,6 @@ It proves capability in network design, IP planning, VPN configuration, and live
 - Bastion Developer is adequate for testing—connect sequentially.  
 - Proper firewall and NSG rules are essential for cross-VNet traffic.  
 
----
-
 ## 🚀 Next Steps
 | Planned Lab | Focus Area |
 |--------------|------------|
@@ -101,18 +75,5 @@ It proves capability in network design, IP planning, VPN configuration, and live
 | **Lab 03 – Storage Security (Planned)** | SAS tokens, RBAC, storage firewalls |
 | **Lab 04 – Monitoring & Automation (Planned)** | Log Analytics, alerts, auto-remediation |
 
----
-
 ## 📘 Reflection
-This lab taught me how to translate Azure networking theory into real deployments,  
-debug complex VPN issues using PowerShell,  
-and document results systematically — skills directly relevant to MSP and Azure Administrator roles.
-
----
-
-*End of Lab 01 – Hybrid Connectivity*
- 
-
----
-
-*End of Lab Summary – Hybrid Connectivity*
+This lab taught me how to translate Azure networking theory into real deployments, debug complex VPN issues using PowerShell, and document results systematically — skills directly relevant to MSP and Azure Administrator roles.
