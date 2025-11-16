@@ -11,10 +11,10 @@ This lab demonstrates VNet design, gateway deployment, routing, and end-to-end t
 ## 🧱 Architecture Overview
 | Component | Details |
 |------------|----------|
-| **Azure VNet** | 'Azure-VNet' – 10.10.0.0/16 with 'VMSubnet' and 'GatewaySubnet' |
-| **On-Prem VNet (Simulated)** | 'OnPrem-VNet' – 192.168.1.0/24 with 'OnPremSubnet' and 'GatewaySubnet' |
-| **Gateways** | Two route-based VPN gateways (SKU :'VpnGw1') |
-| **Connections** | VNet-to-VNet using shared key 'Lab123!SharedKey' |
+| **Azure VNet** | `Azure-VNet` – 10.10.0.0/16 with `VMSubnet` and `GatewaySubnet` |
+| **On-Prem VNet (Simulated)** | `OnPrem-VNet` – 192.168.1.0/24 with `OnPremSubnet` and `GatewaySubnet` |
+| **Gateways** | Two route-based VPN gateways (SKU :`VpnGw1`) |
+| **Connections** | VNet-to-VNet using shared key `Lab123!SharedKey` |
 | **Verification** | Cross-ping between Azure VM and On-Prem VM through VPN tunnel |
 
 
@@ -47,12 +47,12 @@ This lab demonstrates VNet design, gateway deployment, routing, and end-to-end t
 - **VPN Status:** Connected  
 - **Ping Test:** Successful (Verified bi-directional connectivity)  
 - **EgressBytesTransferred:** Non-zero values confirm live traffic  
-- **Evidence:** All scripts and screenshots in '/scripts' and '/screenshots' 
+- **Evidence:** All scripts and screenshots in `/scripts` and `/screenshots` 
 
 ## 🧠 Knowledge Highlights
 | Skill Area | Demonstrated By |
 |-------------|-----------------|
-| Azure Networking & VPN | 'create-vpn-gateway.ps1', 'create-site-to-site.ps1' |
+| Azure Networking & VPN | `create-vpn-gateway.ps1`, `create-site-to-site.ps1` |
 | Infrastructure Automation | Parameterized PowerShell scripts |
 | Troubleshooting & Diagnostics | Issue log and stepwise resolution documented above |
 | Security & Governance | Minimal exposure design using private IP and NSG rules |
