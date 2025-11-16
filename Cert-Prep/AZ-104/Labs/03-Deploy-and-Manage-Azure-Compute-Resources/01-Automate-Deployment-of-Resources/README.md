@@ -18,7 +18,7 @@ Automate deployment of resources by using Azure Resource Manager (ARM) templates
 ## Issues I Troubleshooted
 
 ### 1. Missing GitHub Secrets
-The GitHub Actions workflow referenced secrets that did not exist ('AZURE_RG', 'ADMINPASSWORD').  
+The GitHub Actions workflow referenced secrets that did not exist (`AZURE_RG`, `ADMINPASSWORD`).  
 **Fix:** Added the missing secrets in GitHub → Settings → Secrets and Variables → Actions.
 
 ### 2. GitHub OIDC Login but “No subscriptions found”
@@ -48,7 +48,7 @@ Your Cloud Shell session will be ephemeral...
 This prevented file uploads and ARM-to-Bicep decompilation.  
 **Fix:** Instead of Cloud Shell, installed Azure CLI locally and ran:
 az bicep decompile --file template.json
-This successfully produced a 'template.bicep'.
+This successfully produced a `template.bicep`.
 
 ## What Azure Administrators Do in Real Work
 
