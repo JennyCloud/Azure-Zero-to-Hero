@@ -15,3 +15,14 @@ Create and configure virtual machines
 - Manage virtual machine disks
 - Deploy virtual machines to availability zones and availability sets
 - Deploy and configure an Azure Virtual Machine Scale Sets
+
+## Key Vault Special Note  
+Key Vaults with **purge protection ON** cannot be permanently deleted immediately.
+
+Deletion steps:
+1. Delete the Key Vault normally.  
+2. It enters **soft-delete** state.  
+3. It will be automatically purged after its retention period (7–90 days).  
+4. It does not accrue additional cost while soft-deleted.
+
+This is expected and required behavior when using Customer-Managed Keys.
