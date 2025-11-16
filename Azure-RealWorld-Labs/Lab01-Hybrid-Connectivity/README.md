@@ -1,6 +1,6 @@
 # 🧪 Azure Real-World Labs  
 ## Lab 01 – Hybrid Connectivity  
-**Author:** Jenny Wang (@JennyCloud) | **Completed:** October 27, 2025  
+**Author:** Jenny Wang (@JennyCloud) | **Completed:** October 2025  
 
 *Simulating secure site-to-site VPN connectivity between Azure and an on-premises network.*
 
