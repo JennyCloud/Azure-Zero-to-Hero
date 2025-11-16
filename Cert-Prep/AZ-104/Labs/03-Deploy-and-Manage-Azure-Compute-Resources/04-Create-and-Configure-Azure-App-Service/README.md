@@ -17,32 +17,6 @@ Create and configure Azure App Service
 - Configure networking settings for an App Service
 - Configure deployment slots for an App Service
 
-## Special Notes
-### Admins Repeat the Subdomain Process Monthly
-
-A subdomain seems tiny — just a new DNS name, right?  
-But in real organizations, new subdomains = new business ideas.
-
-Marketing launches a new event → `event.company.com`  
-Customer success wants a portal → `portal.company.com`  
-Developers want a feature preview → `beta.company.com`  
-Security team isolates an area → `secure.company.com`  
-Product wants regional rollouts → `eu.company.com`, `apac.company.com`  
-
-Every department sees subdomains as cheap, harmless expansions.  
-But each one requires:
-
-- DNS creation  
-- Verification  
-- Binding to App Service  
-- TLS certificate creation  
-- Certificate renewal  
-- Occasionally moving the mapping during redesigns  
-
-This is why admins repeat it monthly: business evolves faster than anyone can document, and DNS becomes the front-line evidence of that evolution.
-
-DNS is like the naming ceremony for every new idea.
-
 ## What Azure Administrators Really Do with App Services
 
 ### 1. Treat App Service Plans like shared apartments
@@ -88,6 +62,30 @@ Admins deal with:
 - Wildcard cert requests for multi-tenant apps  
 
 This is the part where admins age faster.
+#### Admins Repeat the Subdomain Process Monthly
+
+A subdomain seems tiny — just a new DNS name, right?  
+But in real organizations, new subdomains = new business ideas.
+
+Marketing launches a new event → `event.company.com`  
+Customer success wants a portal → `portal.company.com`  
+Developers want a feature preview → `beta.company.com`  
+Security team isolates an area → `secure.company.com`  
+Product wants regional rollouts → `eu.company.com`, `apac.company.com`  
+
+Every department sees subdomains as cheap, harmless expansions.  
+But each one requires:
+
+- DNS creation  
+- Verification  
+- Binding to App Service  
+- TLS certificate creation  
+- Certificate renewal  
+- Occasionally moving the mapping during redesigns  
+
+This is why admins repeat it monthly: business evolves faster than anyone can document, and DNS becomes the front-line evidence of that evolution.
+
+DNS is like the naming ceremony for every new idea.
 
 ### 5. Backups + Restore testing
 Admins don't just “turn on backups.” They:
@@ -135,23 +133,7 @@ Admins monitor App Services like a hawk:
 
 When an outage happens, 80% of the job is reading charts and playing detective.
 
-### 9. Automation > Portal clicking
-Admins rarely configure production through the portal.
-
-Instead they use:  
-- Bicep  
-- Terraform  
-- PowerShell  
-- GitHub Actions / Azure DevOps pipelines  
-
-Portal is used for:  
-- Quick diagnostics  
-- Urgent manual swap  
-- Debugging incidents  
-
-Everything else lives as code.
-
-### 10. Security, security, security
+### 9. Security, security, security
 Admins constantly enforce:
 
 - TLS 1.2 or higher  
