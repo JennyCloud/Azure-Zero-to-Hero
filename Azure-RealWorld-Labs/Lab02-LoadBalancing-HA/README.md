@@ -1,9 +1,7 @@
 # 🧩 Lab 02: Load Balancing & High Availability  
-**Author:** Jenny Wang (@JennyCloud)  
+
 **Lab Goal:** Deploy a highly available two-tier web service using an Azure Load Balancer to distribute HTTP traffic between IIS servers.  
 **Tools:** Azure Portal + PowerShell (Az Module)
-
----
 
 ## 🏗️ Architecture Overview
 
@@ -19,8 +17,6 @@ Each component was provisioned and secured using real-world methods applied in m
 - **VMs:** `WebVM1` & `WebVM2` — Windows Server 2022 IIS servers  
 - **Load Balancer:** `Web-LB` — Standard SKU, public frontend IP (HTTP port 80)  
 - **Probe:** `TCP-Probe` — health checks on port 80 for backend availability  
-
----
 
 ## ⚙️ Steps Performed
 
@@ -55,8 +51,6 @@ Diagnostics included:
 - Rule and probe validation
 - Confirmed traffic distribution via public IP (`20.xx.xx.xx`)
 
----
-
 ## 🧠 Lessons Learned
 
 - **Trusted Launch VMs** require specific feature registration — workaround: deploy via Portal.  
@@ -64,15 +58,11 @@ Diagnostics included:
 - **Backend pool attachments** must target the NIC’s IP configuration explicitly.  
 - **Diagnostics tools** (`Test-AzNetworkConnectivity`, `Get-AzLoadBalancer`) help trace packet flow.  
 
----
-
 ## 📸 Screenshots
 - `iis-install-success.png` — IIS installed successfully  
 - `webvm1-page.png` / `webvm2-page.png` — local IIS tests  
 - `loadbalancer-success.png` — web page served via public LB IP  
 - `architecture-diagram.png` — architecture diagram  
-
----
 
 ## 📂 Files Included
 | File | Description |
@@ -84,12 +74,8 @@ Diagnostics included:
 | `create-loadbalancer.ps1` | Builds Azure Load Balancer |
 | `fix-loadbalancer.ps1` | Replaces probe and fixes routing |
 
----
-
 ## 🚀 Outcome
 The final setup delivers:
 - **High Availability** through load balancing between two VMs  
 - **Scalability** for future web tiers  
 - **Resilience testing** skills demonstrated via diagnostics and fix scripts  
-
-This lab mirrors how **MSPs** maintain customer uptime, troubleshoot network flows, and apply incremental fixes without downtime — the same skills expected from a junior cloud administrator in production support roles.
