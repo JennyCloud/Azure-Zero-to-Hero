@@ -62,7 +62,7 @@ Admins deal with:
 - Wildcard cert requests for multi-tenant apps  
 
 This is the part where admins age faster.
-#### Admins Repeat the Subdomain Process Monthly
+#### Example: Admins Repeat the Subdomain Process Monthly
 
 A subdomain seems tiny — just a new DNS name, right?  
 But in real organizations, new subdomains = new business ideas.
