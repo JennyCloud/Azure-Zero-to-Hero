@@ -1,4 +1,4 @@
-# Lab 03 - Provision and Manage Containers in Azure
+# Lab 03 - Provision and Manage Containers
 
 This lab demonstrates how to deploy, manage, and scale containers in Azure using several platform services. You will work with Azure Container Registry (ACR), Azure Container Instances (ACI), and Azure Container Apps (ACA) to understand container provisioning, networking, and operational management in preparation for the AZ-104 exam.
 
@@ -13,7 +13,7 @@ Provision and manage containers in the Azure portal
 - Provision a container by using Azure Container Apps
 - Manage sizing and scaling for containers, including Azure Container Instances and Azure Container Apps
 
-## What Azure Administrators Do in Real Work (Containers Edition)
+## What Azure Administrators Do in Real Work
 
 Azure administrators treat containers as infrastructure components that need security, networking, identity, predictable scaling, and cost governance. Developers build container images; administrators keep the platform running safely and reliably.
 
