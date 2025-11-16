@@ -17,6 +17,32 @@ Create and configure Azure App Service
 - Configure networking settings for an App Service
 - Configure deployment slots for an App Service
 
+## Special Notes
+### Admins Repeat the Subdomain Process Monthly
+
+A subdomain seems tiny — just a new DNS name, right?  
+But in real organizations, new subdomains = new business ideas.
+
+Marketing launches a new event → `event.company.com`  
+Customer success wants a portal → `portal.company.com`  
+Developers want a feature preview → `beta.company.com`  
+Security team isolates an area → `secure.company.com`  
+Product wants regional rollouts → `eu.company.com`, `apac.company.com`  
+
+Every department sees subdomains as cheap, harmless expansions.  
+But each one requires:
+
+- DNS creation  
+- Verification  
+- Binding to App Service  
+- TLS certificate creation  
+- Certificate renewal  
+- Occasionally moving the mapping during redesigns  
+
+This is why admins repeat it monthly: business evolves faster than anyone can document, and DNS becomes the front-line evidence of that evolution.
+
+DNS is like the naming ceremony for every new idea.
+
 ## What Azure Administrators Really Do with App Services
 
 ### 1. Treat App Service Plans like shared apartments
