@@ -1,6 +1,6 @@
 # Stateful vs Stateless
 
-Stateful and stateless systems are two very different philosophies of how apps remember things. Once you see the difference, half of Azure networking and load-balancing puzzles suddenly make sense. Here’s the explanation presented cleanly and clearly.
+Stateful and stateless systems are two very different philosophies of how apps remember things. Once you see the difference, half of Azure networking and load-balancing puzzles suddenly make sense. 
 
 ---
 
