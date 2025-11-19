@@ -16,8 +16,6 @@ Monitor resources in Azure
 Azure monitoring isn’t a checklist in real life — it’s more like running a control room.  
 Admins don’t click through every blade; they build a **monitoring culture** where signals flow, alerts mean something, and dashboards tell the truth.
 
-Here’s how it actually works in the field, spoken plainly and without the certification-polish.
-
 ### 1. Admins rarely use the portal for monitoring
 The portal is good for demos and labs.  
 Real work uses:
