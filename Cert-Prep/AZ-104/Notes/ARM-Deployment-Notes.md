@@ -3,7 +3,6 @@
 ## Inline Array Parameters
 Pass arrays inline using `--parameters`:
 
-```bash
 az deployment group create \
   --resource-group RG1 \
   --template-file main.json \
