@@ -1,12 +1,6 @@
 # Azure ARM Deployment Scope Rules — Understanding Valid & Invalid Scope Combinations
 
-Azure’s deployment scopes behave like nested layers. Each scope can only deploy to **itself** or **one level below**. Once you visualize the hierarchy, the rules become predictable.
-
-Tenant
-└── Management Groups
-└── Subscriptions
-└── Resource Groups
-└── Resources
+Azure’s deployment scopes behave like nested layers. Each scope can only deploy to **itself** or **one level below**.
 
 
 ## Management Group Scope + Subscription Scope = Valid
