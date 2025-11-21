@@ -21,18 +21,19 @@ SigninLogs
 
 KQL reads top to bottom, one operator at a time.
 
----
+
 
 ## 2. The Pipe `|`
 The pipe connects operations.
 
 SigninLogs
+
 | take 10
 
 
 Read this as: *Take the SigninLogs table, then take 10 rows.*
 
----
+
 
 ## 3. Filtering with `where`
 
@@ -56,7 +57,7 @@ AzureActivity
 | where ActivityStatusValue == "Success"
 
 
----
+
 
 ## 4. Selecting columns with `project`
 
@@ -64,7 +65,7 @@ SigninLogs
 | project UserPrincipalName, IPAddress, AppDisplayName
 
 
----
+
 
 ## 5. Creating columns with `extend`
 
@@ -73,7 +74,7 @@ SigninLogs
 | project UserPrincipalName, Device
 
 
----
+
 
 ## 6. Sorting with `order by`
 
@@ -81,7 +82,7 @@ SigninLogs
 | order by TimeGenerated desc
 
 
----
+
 
 ## 7. Counting with `summarize`
 
@@ -96,7 +97,7 @@ SigninLogs
 | summarize count() by bin(TimeGenerated, 1h)
 
 
----
+
 
 ## 8. Joining tables with `join`
 
@@ -107,7 +108,7 @@ Heartbeat
 ) on Computer
 
 
----
+
 
 ## 9. Parsing with `parse` and `extract`
 
@@ -115,7 +116,7 @@ AppTraces
 | parse Message with "User " username " logged in from " ip
 
 
----
+
 
 ## 10. Time ranges with `ago()`
 
@@ -128,7 +129,7 @@ Or:
 where TimeGenerated between (ago(7d) .. now())
 
 
----
+
 
 ## 11. Real-world KQL pattern
 
@@ -147,7 +148,7 @@ SecurityEvent
 | summarize count() by LoginType, bin(TimeGenerated, 1h)
 
 
----
+
 
 ## 12. How to “think like KQL”
 
@@ -159,14 +160,14 @@ SecurityEvent
 
 Always a funnel: big → small → meaningful.
 
----
+
 
 ## 13. Mental trick
 
 SQL: rows control everything  
 KQL: logs flow like rivers  
 
----
+
 
 ## 14. What comes next?
 
