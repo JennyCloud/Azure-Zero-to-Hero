@@ -27,7 +27,6 @@ KQL reads top to bottom, one operator at a time.
 The pipe connects operations.
 
 SigninLogs
-
 | take 10
 
 
