@@ -1,6 +1,6 @@
 # Azure Study Notes — Categorized by AZ-104 Domains
 
-This index organizes all notes into the five major AZ-104 categories for fast navigation.
+This index organizes all notes I made when preparing for AZ-104 into the five major AZ-104 categories for fast navigation.
 
 ---
 
