@@ -1,0 +1,58 @@
+# Azure Study Notes — Categorized by AZ-104 Domains
+
+This index organizes all notes into the five major AZ-104 categories for fast navigation.
+
+---
+
+## 01 — Identities and Governance
+
+- [Microsoft-Entra-ID](Microsoft-Entra-ID.md)
+- [AzureADConnect-vs-AzureADDS](AzureADConnect-vs-AzureADDS.md)
+- [EntraID-vs-ADDS-Application-Isolation](EntraID-vs-ADDS-Application-Isolation.md)
+- [ManagedIdentity-vs-ServicePrincipal](ManagedIdentity-vs-ServicePrincipal.md)
+- [License-Assignment-Free-vs-Premium](License-Assignment-Free-vs-Premium.md)
+- [UserAccess-vs-UserAdmin](UserAccess-vs-UserAdmin.md)
+- [PIM-Why-It-Was-Designed](PIM-Why-It-Was-Designed.md)
+- [How-Azure-Policy-Actually-Behaves](How-Azure-Policy-Actually-Behaves.md)
+- [Why-Azure-Splits-ControlPlane-and-DataPlane-RBAC](Why-Azure-Splits-ControlPlane-and-DataPlane-RBAC.md)
+- [ARM-Deployment-Scope-Rules](ARM-Deployment-Scope-Rules.md)
+- [Azure-and-Resource-Providers](Azure-and-Resource-Providers.md)
+
+---
+
+## 02 — Implement and Manage Storage
+
+- [Secure-Access-to-Azure-Storage](Secure-Access-to-Azure-Storage.md)
+- [Blob-Object-Replication](Blob-Object-Replication.md)
+- [Why-AzCopy-Is-So-Powerful](Why-AzCopy-Is-So-Powerful.md)
+- [Backup-Vault-Region-Rules](Backup-Vault-Region-Rules.md)
+- [BackupVault_vs_RecoveryVault](BackupVault_vs_RecoveryVault.md)
+- [ACR-ImagePull-Access](ACR-ImagePull-Access.md)
+
+---
+
+## 03 — Deploy and Manage Azure Compute Resources
+
+- [VM-Redeploy-and-IPBehavior](VM-Redeploy-and-IPBehavior.md)
+- [VM-vs-DiskSnapshot-RBAC](VM-vs-DiskSnapshot-RBAC.md)
+- [Container-Apps-vs-App-Service](Container-Apps-vs-App-Service.md)
+- [ContainerGroup-CPU-Limits-vs-Requests](ContainerGroup-CPU-Limits-vs-Requests.md)
+- [ARM-Deployment-Notes](ARM-Deployment-Notes.md)
+- [metadata-and-ARM](metadata-and-ARM.md)
+
+---
+
+## 04 — Implement and Manage Virtual Networking
+
+- [AppService-Networking](AppService-Networking.md)
+- [Azure-Routing-NextHop-Types](Azure-Routing-NextHop-Types.md)
+- [ExpressRoute-Peering-Comparison](ExpressRoute-Peering-Comparison.md)
+- [Global-Networking-Services-Azure](Global-Networking-Services-Azure.md)
+- [Hub-and-Spoke](Hub-and-Spoke.md)
+- [Stateless-vs-Stateful](Stateless-vs-Stateful.md)
+
+---
+
+## 05 — Monitor and Maintain Azure Resources
+
+- [Quota-DeepDive](Quota-DeepDive.md)
