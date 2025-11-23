@@ -28,6 +28,7 @@ This index organizes all notes I made when preparing for AZ-104 into the five ma
 - [Backup-Vault-Region-Rules](Backup-Vault-Region-Rules.md)
 - [BackupVault_vs_RecoveryVault](BackupVault_vs_RecoveryVault.md)
 - [ACR-ImagePull-Access](ACR-ImagePull-Access.md)
+- [Restore-vs-Replication](Restore-vs-Replication.md)
 
 ---
 
