@@ -43,6 +43,7 @@ This index organizes all notes I made when preparing for AZ-104 into the five ma
 - [ContainerGroup-CPU-Limits-vs-Requests](ContainerGroup-CPU-Limits-vs-Requests.md)
 - [ARM-Deployment-Notes](ARM-Deployment-Notes.md)
 - [metadata-and-ARM](metadata-and-ARM.md)
+- [Encryption-at-Host-vs-Azure-Disk-Encryption](Encryption-at-Host-vs-Azure-Disk-Encryption.md)
 
 ---
 
