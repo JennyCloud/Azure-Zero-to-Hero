@@ -32,6 +32,7 @@ This index organizes all notes I made when preparing for AZ-104 into the five ma
 - [ACR-ImagePull-Access](ACR-ImagePull-Access.md)
 - [Restore-vs-Replication](Restore-vs-Replication.md)
 - [Why-Blob-Backup-Is-Daily-And-Files-Get-Six](Why-Blob-Backup-Is-Daily-And-Files-Get-Six.md)
+- [Five-Stored-Access-Policies-Per-Container](Five-Stored-Access-Policies-Per-Container.md)
 
 ---
 
