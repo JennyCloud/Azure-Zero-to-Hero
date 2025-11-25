@@ -28,3 +28,6 @@
 
 ## Conditional Access Controls
 - Azure supports Azure role assignment conditions only for Blob Storage containers and Queue Storage.
+
+## Hierarchical namespace
+- Hierarchical namespace cannot be disabled once a storage account is created with it enabled.
