@@ -25,3 +25,6 @@
 
 ## Encryption Scopes
 - Only apply to **blob containers and blobs**, not file shares, queues, or tables.
+
+## Conditional Access Controls
+- Azure supports Azure role assignment conditions only for Blob Storage containers and Queue Storage.
