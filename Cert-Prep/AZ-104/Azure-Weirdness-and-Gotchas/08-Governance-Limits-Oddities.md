@@ -7,6 +7,8 @@
 ## Locks
 - Cannot override a Delete lock with privileged roles.
 - Locks apply at inheritance level unless explicitly broken.
+- Resource-level locks don’t block moves.
+- Resource group or subscription-level read-only locks do block moves.
 
 ## Management Groups
 - Cannot move subscriptions across tenants.
