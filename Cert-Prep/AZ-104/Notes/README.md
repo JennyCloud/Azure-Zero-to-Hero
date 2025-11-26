@@ -56,6 +56,7 @@ This index organizes all notes I made when preparing for AZ-104 into the five ma
 - [Global-Networking-Services-Azure](Global-Networking-Services-Azure.md)
 - [Hub-and-Spoke](Hub-and-Spoke.md)
 - [Stateless-vs-Stateful](Stateless-vs-Stateful.md)
+- [VNet-Addressing-Planning-Guide](VNet-Addressing-Planning-Guide.md)
 
 ---
 
