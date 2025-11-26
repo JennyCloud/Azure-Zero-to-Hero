@@ -22,3 +22,11 @@
 ## Routing
 - BGP routes override system routes.
 - User-defined routes override system routes unless blocked by NSGs.
+
+## Bastion Public IP Requirements
+Bastion is a security-sensitive, region-bound, gateway-style service.
+Its public IP must therefore be:
+- Standard → locked-down edge network behavior
+- IPv4 → current bastion control-plane requirement
+- Regional → matches the region of the Bastion host
+- Static → stable endpoint for security, auditing, and enterprise firewalls
