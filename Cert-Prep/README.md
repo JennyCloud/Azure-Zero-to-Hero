@@ -21,5 +21,5 @@ These notes are meant to:
 
 ---
 
-**Last Updated:** November 2025  
+**Date Created:** November 2025  
 **Category:** Azure Certification Learning Hub  
