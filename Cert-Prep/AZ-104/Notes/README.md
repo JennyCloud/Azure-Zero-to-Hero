@@ -58,6 +58,7 @@ This index organizes all notes I made when preparing for AZ-104 into the five ma
 - [Hub-and-Spoke](Hub-and-Spoke.md)
 - [Stateless-vs-Stateful](Stateless-vs-Stateful.md)
 - [VNet-Addressing-Planning-Guide](VNet-Addressing-Planning-Guide.md)
+- [Local-Network-Gateway-vs-VPN-Gateway](Local-Network-Gateway-vs-VPN-Gateway.md)
 
 ---
 
