@@ -23,7 +23,9 @@
 - BGP routes override system routes.
 - User-defined routes override system routes unless blocked by NSGs.
 
-## Bastion Public IP Requirements
+## Bastion
+Azure Bastion tunnels RDP sessions over port 443, eliminating the need to open port 3389 in the NSG.
+
 Bastion is a security-sensitive, region-bound, gateway-style service.
 Its public IP must therefore be:
 - Standard → locked-down edge network behavior
