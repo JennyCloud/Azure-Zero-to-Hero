@@ -16,3 +16,6 @@
 ## Azure Policy
 - Some policies operate in "Audit" mode only.
 - Deny policies only work when resource providers support them.
+
+## Licensing
+Qroup-based licensing in Microsoft Entra ID supports security groups (including mail-enabled security groups) and Microsoft 365 groups that have securityEnabled=TRUE.
