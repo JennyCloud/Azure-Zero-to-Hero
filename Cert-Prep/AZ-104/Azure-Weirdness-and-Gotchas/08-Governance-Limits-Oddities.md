@@ -13,3 +13,6 @@
 ## Management Groups
 - Cannot move subscriptions across tenants.
 - Policy evaluation orders matter for deny/append effects.
+
+## Policy
+- Policy cannot be applied to an individual resource from the Azure Portal, however, it can be done via Azure CLI or PowerShell.
