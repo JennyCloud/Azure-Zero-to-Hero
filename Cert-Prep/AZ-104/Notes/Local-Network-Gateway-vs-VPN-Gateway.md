@@ -1,7 +1,6 @@
 # Local Network Gateway vs VPN Gateway
 
 A Local Network Gateway and a VPN Gateway look like a matched pair in Azure networking, but they play completely different roles. One represents your on-premises network, and the other is the Azure end of the tunnel.  
-People often confuse them because the names overlap—and Azure doesn’t help by burying the explanation deep in docs.
 
 ---
 
