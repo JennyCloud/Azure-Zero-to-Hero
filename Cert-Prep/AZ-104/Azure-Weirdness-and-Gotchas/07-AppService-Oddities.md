@@ -15,3 +15,7 @@
 ## Networking
 - VNet integration behaves differently between Windows and Linux.
 - Regional VNet integration is not the same as Gateway-required VNet integration.
+
+## Backup
+- Azure App Service backups require an Azure Storage account to store the backup data.
+- To exclude specific files or folders from a backup, you can create a _backup.filter file in the root directory of the app.
