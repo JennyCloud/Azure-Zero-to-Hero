@@ -3,6 +3,7 @@
 ## Storage Account Tiers
 - Hot tier may cost more than Cool tier if your workload is infrequently accessed.
 - Archive tier cannot be mounted or browsed; must rehydrate.
+- Only storage accounts configured with LRS (Locally Redundant Storage), GRS (Geo-Redundant Storage), or RA-GRS (Read-Access Geo-Redundant Storage) support moving blob data to the Archive access tier.
 
 ## Azure Files
 - Azure Container Instances use **Azure Files only** for persistent storage.
