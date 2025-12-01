@@ -27,3 +27,6 @@
 - Windows node pools require a Linux node pool first.
 - Windows pods cannot run DaemonSets.
 - HostProcess containers only work in Windows pools.
+
+## Container Groups
+- Azure Container Instances (ACI) currently supports multi-container groups only for Linux containers
