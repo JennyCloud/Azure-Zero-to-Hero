@@ -23,6 +23,11 @@
 - BGP routes override system routes.
 - User-defined routes override system routes unless blocked by NSGs.
 
+## Azure Firewall
+- The Azure Firewall and virtual network must be in the same resource group and same region.
+- The public IP address (associated with the firewall) can be in a different resource group.
+- Resources: https://learn.microsoft.com/en-us/azure/firewall/firewall-faq#are-there-any-firewall-resource-group-restrictions
+
 ## Bastion
 Azure Bastion tunnels RDP sessions over port 443, eliminating the need to open port 3389 in the NSG.
 
