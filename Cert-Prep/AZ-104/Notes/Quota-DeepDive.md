@@ -1,10 +1,5 @@
 # ☁️ Azure Quota Deep Dive — Understanding vCPU Limits and Tricky Scenarios
 
-**Author:** Jenny Wang (@JennyCloud)  
-**Focus:** Deep understanding of Azure vCPU quotas, family vs regional limits, and exam-style reasoning.
-
----
-
 ## 🧭 Overview
 Azure quotas are *logical limits*, not hardware reservations. They exist to control fairness across tenants and ensure stable scaling.  
 This document summarizes the essential concepts, exam traps, and sample practice questions about **vCPU quotas**, **VM families**, and **deallocated resources**.
