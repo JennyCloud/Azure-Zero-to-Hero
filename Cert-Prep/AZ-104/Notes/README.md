@@ -67,4 +67,5 @@ This index organizes all notes I made when preparing for AZ-104 into the five ma
 
 ## 05 — Monitor and Maintain Azure Resources
 
+- [Azure-Monitor-vs-Network-Watcher](Azure-Monitor-vs-Network-Watcher.md)
 - [Azure-VM-Backup](Azure-VM-Backup.md)
