@@ -40,6 +40,7 @@ This index organizes all notes I made when preparing for AZ-104 into the five ma
 ## 03 — Deploy and Manage Azure Compute Resources
 
 - [VM-Redeploy-and-IPBehavior](VM-Redeploy-and-IPBehavior.md)
+- [Quota-DeepDive](Quota-DeepDive.md)
 - [VM-vs-DiskSnapshot-RBAC](VM-vs-DiskSnapshot-RBAC.md)
 - [Container-Apps-vs-App-Service](Container-Apps-vs-App-Service.md)
 - [ContainerGroup-CPU-Limits-vs-Requests](ContainerGroup-CPU-Limits-vs-Requests.md)
@@ -66,5 +67,4 @@ This index organizes all notes I made when preparing for AZ-104 into the five ma
 
 ## 05 — Monitor and Maintain Azure Resources
 
-- [Quota-DeepDive](Quota-DeepDive.md)
 - [Azure-VM-Backup](Azure-VM-Backup.md)
