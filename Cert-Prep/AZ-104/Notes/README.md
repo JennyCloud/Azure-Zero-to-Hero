@@ -20,6 +20,7 @@ This index organizes all notes I made when preparing for AZ-104 into the five ma
 - [ABAC-Basics-and-Why-It-Matters](ABAC-Basics-and-Why-It-Matters.md)
 - [Custom-Security-Attributes-Explained](Custom-Security-Attributes-Explained.md)
 - [Locks-and-Tags-vs-Policy](Locks-and-Tags-vs-Policy.md)
+- [Azure-Cost-Management-vs-Azure-Advisor](Azure-Cost-Management-vs-Azure-Advisor.md)
 
 ---
 
