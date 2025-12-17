@@ -22,6 +22,7 @@ This index organizes all notes I made when preparing for AZ-104 into the five ma
 - [Locks-and-Tags-vs-Policy](Locks-and-Tags-vs-Policy.md)
 - [Azure-Cost-Management-vs-Azure-Advisor](Azure-Cost-Management-vs-Azure-Advisor.md)
 - [Authentication-vs-Authorization](Authentication-vs-Authorization.md)
+- [User-Administrator-Managing-Groups](User-Administrator-Managing-Groups.md)
 - [Role-Assignable-Groups](Role-Assignable-Groups.md)
 
 ---
