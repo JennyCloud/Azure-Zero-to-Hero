@@ -32,7 +32,6 @@ This index organizes all notes I made when preparing for AZ-104 into the five ma
 - [Secure-Access-to-Azure-Storage](Secure-Access-to-Azure-Storage.md)
 - [Blob-Object-Replication](Blob-Object-Replication.md)
 - [Why-AzCopy-Is-So-Powerful](Why-AzCopy-Is-So-Powerful.md)
-- [ACR-ImagePull-Access](ACR-ImagePull-Access.md)
 - [Restore-vs-Replication](Restore-vs-Replication.md)
 - [Why-Blob-Backup-Is-Daily-And-Files-Get-Six](Why-Blob-Backup-Is-Daily-And-Files-Get-Six.md)
 - [Five-Stored-Access-Policies-Per-Container](Five-Stored-Access-Policies-Per-Container.md)
@@ -51,6 +50,7 @@ This index organizes all notes I made when preparing for AZ-104 into the five ma
 - [ARM-Deployment-Notes](ARM-Deployment-Notes.md)
 - [metadata-and-ARM](metadata-and-ARM.md)
 - [Encryption-at-Host-vs-Azure-Disk-Encryption](Encryption-at-Host-vs-Azure-Disk-Encryption.md)
+- [ACR-ImagePull-Access](ACR-ImagePull-Access.md)
 - [Connected-Registry](Connected-Registry.md)
 
 ---
