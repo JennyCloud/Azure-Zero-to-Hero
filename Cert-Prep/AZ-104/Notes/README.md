@@ -37,6 +37,7 @@ This index organizes all notes I made when preparing for AZ-104 into the five ma
 - [Why-Blob-Backup-Is-Daily-And-Files-Get-Six](Why-Blob-Backup-Is-Daily-And-Files-Get-Six.md)
 - [Five-Stored-Access-Policies-Per-Container](Five-Stored-Access-Policies-Per-Container.md)
 - [RA-GRS-vs-Object-Replication](RA-GRS-vs-Object-Replication.md)
+- [SAS-Comparison](SAS-Comparison.md)
 
 ---
 
