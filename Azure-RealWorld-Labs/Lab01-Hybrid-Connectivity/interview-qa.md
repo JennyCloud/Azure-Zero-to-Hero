@@ -1,6 +1,4 @@
 # 💬 Lab 01 Interview Q&A – Hybrid Connectivity
-**Author:** Jenny Wang (@JennyCloud)  
-**Date:** October 27, 2025  
 
 ---
 
@@ -66,8 +64,3 @@ I learned to interpret error codes, plan IP ranges carefully, and document root 
 
 **Q12 – How does this lab relate to MSP work?**  
 It mirrors daily MSP tasks—configuring hybrid connectivity, resolving customer VPN issues, and documenting outcomes for operational hand-off.
-
----
-
-
-*End of File – Lab 01 Interview Q&A*
