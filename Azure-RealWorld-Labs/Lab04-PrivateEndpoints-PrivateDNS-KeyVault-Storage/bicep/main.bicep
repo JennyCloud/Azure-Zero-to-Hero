@@ -34,3 +34,16 @@ module dns './modules/privateDns.bicep' = {
 
 output storageBlobZoneId string = dns.outputs.storageBlobZoneId
 output keyVaultZoneId string = dns.outputs.keyVaultZoneId
+
+module stg './modules/storage.bicep' = {
+  name: 'stg'
+  params: {
+    location: location
+    prefix: prefix
+    tags: tags
+  }
+}
+
+output storageName string = stg.outputs.storageName
+output storageId string = stg.outputs.storageId
+
