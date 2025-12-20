@@ -1,6 +1,5 @@
 # 🧪 Azure Real-World Labs  
-## Lab 01 – Hybrid Connectivity  
-**Author:** Jenny Wang (@JennyCloud) | **Completed:** October 2025  
+## Lab 01 – Hybrid Connectivity
 
 *Simulating secure site-to-site VPN connectivity between Azure and an on-premises network.*
 
@@ -16,13 +15,6 @@ This lab demonstrates VNet design, gateway deployment, routing, and end-to-end t
 | **Gateways** | Two route-based VPN gateways (SKU :`VpnGw1`) |
 | **Connections** | VNet-to-VNet using shared key `Lab123!SharedKey` |
 | **Verification** | Cross-ping between Azure VM and On-Prem VM through VPN tunnel |
-
-
-### 🔷 Diagram
-
-![Hybrid Connectivity Architecture](./screenshots/architecture-diagram.png)
-
-*Figure: Site-to-Site VPN between Azure VNet and simulated On-Prem VNet using route-based gateways and test VMs.*
 
 ## ⚙️ Key Steps
 1. **Resource Group:** Created `HybridLab-RG`.  
@@ -67,13 +59,6 @@ It proves capability in network design, IP planning, VPN configuration, and live
 - Two connection objects (one per direction) ensure handshake success.  
 - Bastion Developer is adequate for testing—connect sequentially.  
 - Proper firewall and NSG rules are essential for cross-VNet traffic.  
-
-## 🚀 Next Steps
-| Planned Lab | Focus Area |
-|--------------|------------|
-| **Lab 02 – Load Balancing & High Availability** | Internal / external load balancers, probes, failover |
-| **Lab 03 – Storage Security (Planned)** | SAS tokens, RBAC, storage firewalls |
-| **Lab 04 – Monitoring & Automation (Planned)** | Log Analytics, alerts, auto-remediation |
 
 ## 📘 Reflection
 This lab taught me how to translate Azure networking theory into real deployments, debug complex VPN issues using PowerShell, and document results systematically — skills directly relevant to MSP and Azure Administrator roles.
