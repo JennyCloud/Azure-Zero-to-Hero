@@ -4,6 +4,11 @@ param location string = resourceGroup().location
 param prefix string = 'rwlab04'
 param adminSourceCidr string = ''
 
+param adminUsername string = 'azureuser'
+@secure()
+param adminPassword string
+
+
 var tags = {
   Project: 'Azure-RealWorld-Labs'
   Lab: 'Lab04-PrivateEndpoints-PrivateDNS-KeyVault-Storage'
@@ -90,6 +95,21 @@ module peKv './modules/privateEndpoint.bicep' = {
 
 output storagePrivateEndpointId string = peStgBlob.outputs.privateEndpointId
 output keyVaultPrivateEndpointId string = peKv.outputs.privateEndpointId
+
+module vm './modules/vmTest.bicep' = {
+  name: 'vm'
+  params: {
+    location: location
+    prefix: prefix
+    subnetId: net.outputs.workloadSubnetId
+    adminUsername: adminUsername
+    adminPassword: adminPassword
+    tags: tags
+  }
+}
+
+output vmName string = vm.outputs.vmName
+
 
 
 
