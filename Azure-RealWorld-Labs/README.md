@@ -1,12 +1,30 @@
 # Azure Real-World Labs
 
-Practical, production-style Azure labs built to mirror real business environments.  
-Each scenario demonstrates hands-on skills that Managed Service Providers (MSPs), cloud administrators, and IT teams use daily.
+## Overview
+A collection of **hands-on Azure labs** designed around **real operational scenarios**, not exam demos.
 
-## Structure
-- **Lab01-Hybrid-Connectivity** – VPN Gateway + On-prem simulation
-- **Lab02-Azure-FileSync** – Hybrid storage and backup
-- **Lab03-Hybrid-Identity** – AD Connect and SSO
-- More labs coming soon...
+The focus is on:
+- Practical Azure administration
+- Enterprise / MSP design patterns
+- Secure, repeatable deployments
+- Clear progression from scripting to Infrastructure as Code
 
-Stay tuned for detailed guides, diagrams, and scripts.
+## Labs
+- **Lab 01** — Hybrid Connectivity (PowerShell)  
+- **Lab 02** — Load Balancing & High Availability (PowerShell)  
+- **Lab 03** — VM Scale Sets & Autoscaling (PowerShell)  
+- **Lab 04** — Private Endpoints & Private DNS (Bicep + GitHub Actions)
+
+## Tooling
+- Azure PowerShell
+- Bicep
+- GitHub Actions (OIDC)
+- Azure CLI
+- Azure Portal (verification)
+
+## What’s Next
+Future labs will focus on:
+- Monitoring and alerting
+- Governance and policy
+- Hub-and-spoke networking
+- Advanced automation patterns
