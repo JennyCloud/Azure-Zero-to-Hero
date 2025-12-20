@@ -21,8 +21,6 @@ Deploy a scalable web tier that automatically installs IIS on each instance and 
 
 ## 🏗️ Architecture Diagram
 
-![Lab 3 Architecture Diagram](./architecture-diagram.png)
-
 **Traffic Flow:**  
 1. Client sends an HTTP request to the public IP.  
 2. The Load Balancer routes traffic via **port 80** to VMSS instances.  
