@@ -1,114 +1,116 @@
-# Lab04 – Private Endpoints + Private DNS (Storage & Key Vault)
-
-## Overview
-This lab demonstrates how to deploy **private-only PaaS services** in Azure using **Bicep** and **GitHub Actions (OIDC)**, following a real-world enterprise / MSP security pattern.
-
-Both **Azure Storage** and **Azure Key Vault** are:
-- Deployed with **public network access disabled**
-- Accessed **only via Private Endpoints**
-- Integrated with **Azure Private DNS Zones**
-- Fully automated using **Infrastructure as Code**
-
-This lab focuses on **secure data-plane design**, not portal clicking.
+# Lab04 — Private Endpoints & Private DNS  
+### Secure Azure Storage and Key Vault (Bicep + GitHub Actions)
 
 ---
 
-## Scenario (Real-World Context)
+## 🔍 Overview
+This lab demonstrates how to deploy **private-only Azure PaaS services** using **Bicep** and **GitHub Actions (OIDC)**, following real-world **enterprise / MSP security patterns**.
+
+Both **Azure Storage** and **Azure Key Vault** are deployed with:
+- 🚫 **No public network access**
+- 🔐 **Private Endpoints only**
+- 🌐 **Azure Private DNS integration**
+- ⚙️ **Fully automated Infrastructure as Code**
+
+The emphasis is on **secure data-plane design**, not portal-driven configuration.
+
+---
+
+## 🧩 Scenario (Real-World Context)
 A customer requires:
 - Storage accounts and Key Vaults **not exposed to the public internet**
-- Access allowed **only from inside a trusted VNet**
-- Centralized DNS resolution without custom hosts files
-- Automated, repeatable deployments for auditability
+- Access limited to **trusted VNets**
+- Centralized DNS resolution without manual configuration
+- Repeatable, auditable deployments using CI/CD
 
-This is a common requirement in:
-- Regulated environments
+This pattern is commonly required in:
+- Regulated industries
 - Enterprise landing zones
-- MSP-managed customer subscriptions
+- MSP-managed Azure environments
 
 ---
 
-## Architecture
-**Components deployed:**
-- Virtual Network
-  - Workload subnet
-  - Private Endpoint subnet
+## 🏗️ Architecture
+**Deployed components:**
+- Virtual Network  
+  - Workload subnet  
+  - Private Endpoint subnet  
 - Network Security Group (default deny inbound)
 - Azure Storage Account (Blob)
 - Azure Key Vault (RBAC-enabled)
-- Private Endpoints:
-  - Storage Blob
-  - Key Vault
-- Azure Private DNS Zones:
-  - `privatelink.blob.core.windows.net`
-  - `privatelink.vaultcore.azure.net`
+- Private Endpoints  
+  - Storage Blob  
+  - Key Vault  
+- Azure Private DNS Zones  
+  - `privatelink.blob.core.windows.net`  
+  - `privatelink.vaultcore.azure.net`  
 - Test Linux VM (no public IP)
 
-All resources are deployed via **Bicep** and orchestrated using **GitHub Actions**.
+All resources are deployed using **Bicep modules**, orchestrated by **GitHub Actions**.
 
 ---
 
-## Security Highlights
-- ✅ Public network access **disabled** on Storage and Key Vault
+## 🔐 Security Highlights
+- ✅ Public network access **disabled** for Storage and Key Vault
 - ✅ Data access restricted to **private IP space**
-- ✅ No inbound connectivity required to validate deployment
+- ✅ No inbound connectivity required for validation
 - ✅ Azure RBAC used for Key Vault (no access policies)
-- ✅ No secrets stored in source control
+- ✅ No credentials stored in source control
 
 ---
 
-## Deployment Method
+## 🚀 Deployment
 Deployment is fully automated using **GitHub Actions** with **OIDC authentication**.
 
 ### Trigger
 - Manual: `workflow_dispatch`
 
-### Workflow location
+### Workflow
 .github/workflows/lab04-deploy.yml
 
 
 ### Required GitHub Secrets
-| Name | Purpose |
-|-----|--------|
+| Secret Name | Description |
+|------------|-------------|
 | `AZURE_CLIENT_ID` | OIDC App Registration |
 | `AZURE_TENANT_ID` | Azure AD Tenant ID |
-| `AZURE_SUBSCRIPTION_ID` | Target Subscription |
+| `AZURE_SUBSCRIPTION_ID` | Target Azure subscription |
 | `LAB04_VM_PASSWORD` | Admin password for test VM |
 
 ---
 
-## Validation
-### Configuration Validation (Current)
+## ✅ Validation
+### Configuration Validation
 The following are verified via Azure Portal:
 - Private Endpoints are approved and connected
 - Private DNS zones are linked to the VNet
 - Storage and Key Vault have public access disabled
-- Resources are deployed via GitHub Actions
+- Deployment completed successfully via GitHub Actions
 
 ### Optional Runtime Verification (Not Automated)
-This lab **can** be further validated by running DNS and HTTPS checks from the test VM using:
-- `az vm run-command`
-- `nslookup` to confirm private IP resolution
-- `curl` to confirm private HTTPS connectivity
+This lab **can** be further validated from inside the VNet by:
+- Running commands via `az vm run-command`
+- Using `nslookup` to confirm private DNS resolution
+- Using `curl` to confirm private HTTPS connectivity
 
-Automation of runtime verification is intentionally omitted to keep the lab focused on **network and security design** rather than pipeline complexity.
+Runtime verification is intentionally **not automated** to keep the lab focused on **network and security architecture** rather than pipeline complexity.
 
 ---
 
-## Screenshots
-Screenshots are included to demonstrate:
+## 🖼️ Screenshots
+Included screenshots demonstrate:
 - Successful GitHub Actions deployment
 - Resource group contents
 - Private-only networking configuration
 - Private DNS integration
 
-See the `/screenshots` folder.
+Refer to the `/screenshots` directory.
 
 ---
 
-## Key Learnings
-- How Private Endpoints actually work in production
-- Why Private DNS is critical for PaaS private access
-- How to design private-only data services
-- How to deploy secure Azure infrastructure using Bicep + GitHub Actions
-- Common failure points (DNS misconfiguration, public access assumptions)
-
+## 🧠 Key Learnings
+- How Private Endpoints behave in real production environments
+- Why Private DNS is essential for private PaaS access
+- How to design secure, private-only data services
+- How to deploy Azure infrastructure using Bicep + GitHub Actions
+- Common failure modes (DNS misconfiguration, public access assumptions)
