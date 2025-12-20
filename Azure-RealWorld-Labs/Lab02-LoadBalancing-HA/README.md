@@ -8,8 +8,6 @@
 This lab demonstrates how Azure Load Balancer enables high availability and scalability by routing incoming web requests across multiple backend VMs.  
 Each component was provisioned and secured using real-world methods applied in managed-service environments.
 
-![Lab 2 Load Balancer Architecture](./screenshots/architecture-diagram.png)
-
 **Core Components**
 - **VNet:** `LB-Lab-VNet` — hosts the entire environment  
 - **Subnet:** `WebSubnet` — isolates IIS servers from external access  
