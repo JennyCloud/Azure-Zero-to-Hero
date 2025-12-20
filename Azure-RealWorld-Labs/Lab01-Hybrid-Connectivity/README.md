@@ -49,16 +49,9 @@ This lab demonstrates VNet design, gateway deployment, routing, and end-to-end t
 | Troubleshooting & Diagnostics | Issue log and stepwise resolution documented above |
 | Security & Governance | Minimal exposure design using private IP and NSG rules |
 
-## 🧩 Professional Context
-This scenario mirrors MSP operations when onboarding a client’s on-prem data center to Azure.  
-It proves capability in network design, IP planning, VPN configuration, and live troubleshooting under subscription constraints.
-
 ## 🧭 Lessons Learned
 - Always use **Static Standard** Public IPs for gateways.  
 - `/27` is the minimum GatewaySubnet size.  
 - Two connection objects (one per direction) ensure handshake success.  
 - Bastion Developer is adequate for testing—connect sequentially.  
 - Proper firewall and NSG rules are essential for cross-VNet traffic.  
-
-## 📘 Reflection
-This lab taught me how to translate Azure networking theory into real deployments, debug complex VPN issues using PowerShell, and document results systematically — skills directly relevant to MSP and Azure Administrator roles.
