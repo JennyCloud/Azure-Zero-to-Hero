@@ -22,3 +22,15 @@ module net './modules/network.bicep' = {
 output vnetName string = net.outputs.vnetName
 output workloadSubnetId string = net.outputs.workloadSubnetId
 output privateEndpointSubnetId string = net.outputs.privateEndpointSubnetId
+
+module dns './modules/privateDns.bicep' = {
+  name: 'dns'
+  params: {
+    prefix: prefix
+    vnetId: net.outputs.vnetId
+    tags: tags
+  }
+}
+
+output storageBlobZoneId string = dns.outputs.storageBlobZoneId
+output keyVaultZoneId string = dns.outputs.keyVaultZoneId
