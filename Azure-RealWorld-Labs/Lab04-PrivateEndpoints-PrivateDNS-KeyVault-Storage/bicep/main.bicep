@@ -1,3 +1,24 @@
 targetScope = 'resourceGroup'
 
-// Step 1: placeholder - I will add modules next
+param location string = resourceGroup().location
+param prefix string = 'rwlab04'
+param adminSourceCidr string = ''
+
+var tags = {
+  Project: 'Azure-RealWorld-Labs'
+  Lab: 'Lab04-PrivateEndpoints-PrivateDNS-KeyVault-Storage'
+}
+
+module net './modules/network.bicep' = {
+  name: 'net'
+  params: {
+    location: location
+    prefix: prefix
+    tags: tags
+    adminSourceCidr: adminSourceCidr
+  }
+}
+
+output vnetName string = net.outputs.vnetName
+output workloadSubnetId string = net.outputs.workloadSubnetId
+output privateEndpointSubnetId string = net.outputs.privateEndpointSubnetId
