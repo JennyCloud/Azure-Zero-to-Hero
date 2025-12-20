@@ -60,4 +60,36 @@ module kv './modules/keyvault.bicep' = {
 output keyVaultName string = kv.outputs.keyVaultName
 output keyVaultId string = kv.outputs.keyVaultId
 
+module peStgBlob './modules/privateEndpoint.bicep' = {
+  name: 'peStgBlob'
+  params: {
+    location: location
+    subnetId: net.outputs.privateEndpointSubnetId
+    privateDnsZoneId: dns.outputs.storageBlobZoneId
+    targetResourceId: stg.outputs.storageId
+    groupId: 'blob'
+    connectionName: '${prefix}-pe-stg-blob'
+    nicName: '${prefix}-nic-pe-stg-blob'
+    tags: tags
+  }
+}
+
+module peKv './modules/privateEndpoint.bicep' = {
+  name: 'peKv'
+  params: {
+    location: location
+    subnetId: net.outputs.privateEndpointSubnetId
+    privateDnsZoneId: dns.outputs.keyVaultZoneId
+    targetResourceId: kv.outputs.keyVaultId
+    groupId: 'vault'
+    connectionName: '${prefix}-pe-kv'
+    nicName: '${prefix}-nic-pe-kv'
+    tags: tags
+  }
+}
+
+output storagePrivateEndpointId string = peStgBlob.outputs.privateEndpointId
+output keyVaultPrivateEndpointId string = peKv.outputs.privateEndpointId
+
+
 
