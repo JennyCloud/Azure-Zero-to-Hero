@@ -21,15 +21,6 @@ Each lab focuses on deployment, automation, and troubleshooting.
 
 ---
 
-## ⚙️ Featured Labs
-
-| Lab | Title | Focus | Link |
-|:--:|:--|:--|:--|
-| 01 | Hybrid Connectivity | Site-to-Site VPN, VNet Peering | [View](./Azure-RealWorld-Labs/Lab01-Hybrid-Connectivity/README.md) |
-| 02 | Load Balancing & HA | Standard Load Balancer, IIS Web Tier | [View](./Azure-RealWorld-Labs/Lab02-LoadBalancing-HA/README.md) |
-
----
-
 ## 🧰 Tools
 PowerShell (Az) · Bash (Azure CLI) · ARM/Bicep · Azure Portal
 
