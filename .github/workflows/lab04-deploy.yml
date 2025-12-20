@@ -1,0 +1,42 @@
+name: Lab04 Deploy - Private Endpoints + Private DNS + KV + Storage
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  RG_NAME: rg-azure-realworld-lab04
+  LOCATION: canadacentral
+  TEMPLATE: Azure-RealWorld-Labs/Lab04-PrivateEndpoints-PrivateDNS-KeyVault-Storage/bicep/main.bicep
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Azure Login (OIDC)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Create Resource Group
+        run: |
+          az group create -n "${{ env.RG_NAME }}" -l "${{ env.LOCATION }}"
+
+      - name: Deploy Bicep (Lab04)
+        run: |
+          az deployment group create \
+            -g "${{ env.RG_NAME }}" \
+            -f "${{ env.TEMPLATE }}" \
+            -p location="${{ env.LOCATION }}" \
+               prefix="rwlab04" \
+               adminUsername="azureuser" \
+               adminPassword="${{ secrets.LAB04_VM_PASSWORD }}"
