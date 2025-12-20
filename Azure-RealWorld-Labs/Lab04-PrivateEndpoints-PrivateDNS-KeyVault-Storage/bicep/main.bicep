@@ -47,3 +47,17 @@ module stg './modules/storage.bicep' = {
 output storageName string = stg.outputs.storageName
 output storageId string = stg.outputs.storageId
 
+module kv './modules/keyvault.bicep' = {
+  name: 'kv'
+  params: {
+    location: location
+    prefix: prefix
+    tenantId: subscription().tenantId
+    tags: tags
+  }
+}
+
+output keyVaultName string = kv.outputs.keyVaultName
+output keyVaultId string = kv.outputs.keyVaultId
+
+
