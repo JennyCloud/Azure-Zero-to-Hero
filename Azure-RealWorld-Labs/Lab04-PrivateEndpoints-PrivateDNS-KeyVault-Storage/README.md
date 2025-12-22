@@ -1,4 +1,4 @@
-# Lab04 — Private Endpoints & Private DNS  
+# Lab04 - Private Endpoints & Private DNS  
 ### Secure Azure Storage and Key Vault (Bicep + GitHub Actions)
 
 ---
