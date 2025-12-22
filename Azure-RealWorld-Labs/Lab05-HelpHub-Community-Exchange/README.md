@@ -7,6 +7,11 @@ This lab focuses on **building, deploying, and automating** a production-style .
 
 The API is **live on Azure**, backed by **Azure SQL**, and deployed automatically via **CI/CD**.
 
+## Source Code
+
+Application repository:  
+https://github.com/JennyCloud/helphub-app
+
 ---
 
 ## Real-World Scenario
@@ -28,13 +33,6 @@ This lab simulates how a small SaaS or community platform backend would be built
 - **Hosting:** Azure App Service (Basic B1)
 - **IaC:** Bicep
 - **CI/CD:** GitHub Actions (OIDC authentication)
-
----
-
-## Source Code
-
-Application repository:  
-https://github.com/JennyCloud/helphub-app
 
 ---
 
