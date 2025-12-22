@@ -100,18 +100,6 @@ All infrastructure is defined and deployed using **Bicep**.
 
 ---
 
-## Troubleshooting Highlights
-
-- Missing .NET SDK → Installed .NET 8 SDK
-- 404 on controllers → Controllers folder missing
-- 500 error on Azure POST → Azure SQL migration not applied
-- Azure SQL blocked IP → Temporary firewall rule added
-- Git push rejected → Resolved via rebase
-
-These issues reflect real production setup challenges.
-
----
-
 ## Key Learnings
 
 - Building a production-ready .NET backend
