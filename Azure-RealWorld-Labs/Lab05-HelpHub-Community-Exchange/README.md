@@ -108,11 +108,10 @@ All infrastructure is defined and deployed using **Bicep**.
 
 ---
 
-## Next Steps
-
-Potential extensions:
-- Authentication & authorization (JWT / Entra ID)
-- Frontend (Blazor / React)
-- Containerization (Docker + Container Apps)
-- Managed Identity for Azure SQL
-- Observability (Application Insights)
+### Redeployment
+All Azure resources are provisioned using Bicep and can be safely deleted and recreated.
+Redeployment requires only:
+- Creating the resource group
+- Running the Bicep deployment
+- Applying EF Core migrations
+- Triggering CI/CD
