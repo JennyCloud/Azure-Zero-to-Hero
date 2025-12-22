@@ -1,6 +1,4 @@
 # ☁️ Azure Zero to Hero — Learning Portfolio  
-**Author:** Jenny Wang (@JennyCloud)  
-**Focus:** Practical Azure labs for learning, automation, and troubleshooting.
 
 ## 🧭 Overview
 This repo documents my hands-on journey in Microsoft Azure — building and managing real-world environments like an **azure administrator** or **cloud engineer**.  
