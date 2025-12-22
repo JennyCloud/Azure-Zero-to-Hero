@@ -80,41 +80,6 @@ Invoke-RestMethod -Method Post -Uri "http://localhost:5193/api/v1/help-requests"
 Verify SQL persistence:
 sqlcmd -S "(localdb)\MSSQLLocalDB" -d "HelpHubDb" -Q "SELECT TOP 5 Title, Location, Status, CreatedUtc FROM HelpRequests ORDER BY CreatedUtc DESC"
 
-
----
-
-## Screenshots (proof)
-
-> Store screenshots here: `screenshots/`
-
-1. GitHub repo structure  
-   ![Repo structure](screenshots/01-github-repo-structure.png)
-
-2. Swagger endpoints  
-   ![Swagger](screenshots/02-swagger-endpoints.png)
-
-3. API running in terminal  
-   ![API running](screenshots/03-dotnet-api-running.png)
-
-4. Help requests API response  
-   ![Help requests response](screenshots/04-help-requests-api-response.png)
-
-5. EF Core migration creating DB/table  
-   ![EF migration](screenshots/05-efcore-migration-create-table.png)
-
-6. Migration files in repo (VS Code)  
-   ![Migration files](screenshots/06-migrations-files-in-repo.png)
-
-7. SQL query shows table exists (empty at first)  
-   ![sqlcmd empty](screenshots/07-sqlcmd-select-helprequests-empty.png)
-
-8. SQL query shows persisted row (POST → DB)  
-   ![sqlcmd row](screenshots/08-db-persistence-proof.png)
-
-9. GitHub Actions CI success  
-   ![CI success](screenshots/09-github-actions-ci-success.png)
-
-
 ---
 
 ## Next steps (Azure deployment plan)
