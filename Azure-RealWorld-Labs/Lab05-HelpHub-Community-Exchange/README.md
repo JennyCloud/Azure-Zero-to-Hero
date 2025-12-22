@@ -1,50 +1,132 @@
-# Lab05 - HelpHub Community Exchange (C#/.NET + SQL + Azure)
+# Lab05 – HelpHub (Community Help Exchange Backend)
 
-**Goal:** Build a community help exchange backend where people can post requests (and later offers), backed by SQL and designed for deployment to Azure with CI/CD.
+## Overview
+**HelpHub** is a real-world style backend service that enables community members to post and retrieve help requests (e.g. moving help, tutoring, errands).
 
-**Source Code Repo:**  
+This lab focuses on **building, deploying, and automating** a production-style .NET backend on **Microsoft Azure**, using **Infrastructure as Code (Bicep)** and **GitHub Actions (OIDC)**.
+
+The API is **live on Azure**, backed by **Azure SQL**, and deployed automatically via **CI/CD**.
+
+---
+
+## Real-World Scenario
+Community platforms often need:
+- A simple REST API
+- Persistent storage
+- Secure cloud deployment
+- Automated build & deployment pipelines
+
+This lab simulates how a small SaaS or community platform backend would be built and shipped in a real engineering environment.
+
+---
+
+## Tech Stack
+
+- **Language / Framework:** C# / .NET 8 Web API
+- **ORM:** Entity Framework Core (Code-First)
+- **Database:** Azure SQL Database
+- **Hosting:** Azure App Service (Basic B1)
+- **IaC:** Bicep
+- **CI/CD:** GitHub Actions (OIDC authentication)
+
+---
+
+## Source Code
+
+Application repository:  
 https://github.com/JennyCloud/helphub-app
-
----
-
-## What I built (so far)
-
-### ✅ Backend API (ASP.NET Core .NET 8)
-- Versioned REST API routes under `/api/v1`
-- Health endpoint for load balancers and uptime checks
-- Swagger UI for interactive API testing and exploration
-
-### ✅ Database (SQL Server LocalDB) + EF Core
-- Code-first data model using Entity Framework Core
-- Initial migration created the database and `HelpRequests` table
-- End-to-end persistence verified:
-  - POST request → saved to SQL → SELECT query returns the row
-
-### ✅ CI (GitHub Actions)
-- GitHub Actions workflow that builds the solution on every push or pull request to `main`
-
----
-
-## Architecture (current)
-
-### Today: Local development stack
-- Client: curl / Swagger UI  
-- Backend: ASP.NET Core Web API  
-- Database: SQL Server LocalDB (`HelpHubDb`)
-
-### Next: Azure deployment
-- Deploy API to Azure compute (App Service or Container Apps)
-- Replace LocalDB with Azure SQL Database
-- Add CD pipeline using GitHub Actions with OIDC authentication
 
 ---
 
 ## API Endpoints
 
-| Method | Route | Description |
-|------|------|-------------|
-| GET | `/health` | Health check endpoint for service monitoring |
-| GET | `/api/v1/ping` | Lightweight smoke-test endpoint |
-| GET | `/api/v1/help-requests` | List all help requests (from SQL) |
-| GET | `/api/v1/help-requests/{id}` | Retrieve a help request by ID |
-| POST | `/api/v1/help-requests` | Create a new help request |
+### Health & Diagnostics
+| Method | Endpoint | Description |
+|------|---------|-------------|
+| GET | `/health` | Health check for App Service |
+| GET | `/api/v1/ping` | Connectivity test |
+
+### Help Requests
+| Method | Endpoint | Description |
+|------|---------|-------------|
+| GET | `/api/v1/help-requests` | List all help requests |
+| GET | `/api/v1/help-requests/{id}` | Get a single request |
+| POST | `/api/v1/help-requests` | Create a help request |
+
+---
+
+## Database Design
+
+**Table:** `HelpRequests`
+
+| Column | Type |
+|------|------|
+| Id | uniqueidentifier (PK) |
+| Title | nvarchar(200) |
+| Location | nvarchar(120) |
+| Status | nvarchar(20) |
+| CreatedUtc | datetimeoffset |
+
+- Schema created using **EF Core migrations**
+- Same migration applied locally and to **Azure SQL**
+
+---
+
+## Infrastructure as Code (Bicep)
+
+Provisioned resources include:
+- Resource Group (Canada Central)
+- App Service Plan (B1)
+- Azure Web App
+- Azure SQL Server + Database
+- SQL firewall rules (Azure services only)
+
+All infrastructure is defined and deployed using **Bicep**.
+
+---
+
+## CI/CD Pipeline
+
+### Continuous Integration (CI)
+- Triggered on every push to `main`
+- Restores and builds the solution
+- Fails fast on compile errors
+
+### Continuous Deployment (CD)
+- Triggered on API changes
+- Uses **GitHub OIDC → Azure Entra ID**
+- No stored Azure secrets
+- Automatically deploys to Azure App Service
+
+---
+
+## Troubleshooting Highlights
+
+- Missing .NET SDK → Installed .NET 8 SDK
+- 404 on controllers → Controllers folder missing
+- 500 error on Azure POST → Azure SQL migration not applied
+- Azure SQL blocked IP → Temporary firewall rule added
+- Git push rejected → Resolved via rebase
+
+These issues reflect real production setup challenges.
+
+---
+
+## Key Learnings
+
+- Building a production-ready .NET backend
+- Using EF Core consistently across environments
+- Secure Azure deployments using **OIDC**
+- Infrastructure-as-Code with Bicep
+- Debugging cloud + database issues end-to-end
+
+---
+
+## Next Steps
+
+Potential extensions:
+- Authentication & authorization (JWT / Entra ID)
+- Frontend (Blazor / React)
+- Containerization (Docker + Container Apps)
+- Managed Identity for Azure SQL
+- Observability (Application Insights)
