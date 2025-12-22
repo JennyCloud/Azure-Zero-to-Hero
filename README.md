@@ -1,7 +1,7 @@
 # ☁️ Azure Zero to Hero — Learning Portfolio  
 
 ## 🧭 Overview
-This repo documents my hands-on journey in Microsoft Azure — building and managing real-world environments like an **azure administrator** or **cloud engineer**.  
+This repo documents my hands-on journey in Microsoft Azure — building and managing real-world environments like a **cloud engineer**.  
 Each lab focuses on deployment, automation, and troubleshooting.
 
 ## 📂 Structure
