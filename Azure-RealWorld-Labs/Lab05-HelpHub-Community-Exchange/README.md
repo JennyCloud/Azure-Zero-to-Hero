@@ -1,4 +1,4 @@
-# Lab05 — HelpHub Community Exchange (C#/.NET + SQL + Azure-ready)
+# Lab05 - HelpHub Community Exchange (C#/.NET + SQL + Azure)
 
 **Goal:** Build a community help exchange backend where people can post requests (and later offers), backed by SQL and designed to deploy to Azure with CI/CD.
 
