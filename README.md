@@ -3,7 +3,7 @@
 **Focus:** Practical Azure labs for learning, automation, and troubleshooting.
 
 ## 🧭 Overview
-This repo documents my hands-on journey in Microsoft Azure — building and managing real-world environments like a **azure administrator** or **cloud engineer**.  
+This repo documents my hands-on journey in Microsoft Azure — building and managing real-world environments like an **azure administrator** or **cloud engineer**.  
 Each lab focuses on deployment, automation, and troubleshooting.
 
 ## 📂 Structure
