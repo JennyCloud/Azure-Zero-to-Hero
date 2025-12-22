@@ -1,7 +1,10 @@
 # ☁️ Azure Zero to Hero — Learning Portfolio  
 
 ## 🧭 Overview
-This repo documents my hands-on journey in Microsoft Azure — building and managing real-world environments like a **cloud engineer**.  
+This repository documents my hands-on learning journey in Microsoft Azure — building and managing real-world environments like a **cloud engineer**.
+
+Labs are designed to be **production-realistic**, reproducible, and cost-aware, and are built using my personal Microsoft Azure account.  
+Resources are **created, validated, documented, and then cleaned up** to avoid unnecessary cloud costs.
 
 ---
 
@@ -23,7 +26,7 @@ This repo documents my hands-on journey in Microsoft Azure — building and mana
 ---
 
 ## 🧰 Tools
-PowerShell (Az) · Bash (Azure CLI) · ARM/Bicep · Azure Portal
+PowerShell (Az) · Bash (Azure CLI) · ARM / Bicep · GitHub Actions · Azure Portal
 
 ---
 
@@ -32,6 +35,7 @@ PowerShell (Az) · Bash (Azure CLI) · ARM/Bicep · Azure Portal
 - Security and access control  
 - Connectivity troubleshooting  
 - Infrastructure automation  
+- Cost awareness and resource lifecycle management  
 
 ---
 
