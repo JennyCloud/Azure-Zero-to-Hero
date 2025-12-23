@@ -78,3 +78,4 @@ This index organizes all notes I made when preparing for AZ-104 into the five ma
 - [Azure-VM-Backup-Workflow](Azure-VM-Backup-Workflow.md)
 - [Backup-Vault-Region-Rules](Backup-Vault-Region-Rules.md)
 - [BackupVault_vs_RecoveryVault](BackupVault_vs_RecoveryVault.md)
+- [Azure-Migrate-vs-ASR](Azure-Migrate-vs-ASR.md)
