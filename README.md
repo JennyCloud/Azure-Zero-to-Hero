@@ -19,9 +19,22 @@ Resources are **created, validated, documented, and then cleaned up** to avoid u
 
 ---
 
-### ⭐ Featured Labs
-- **Lab 05 — HelpHub: Cloud Backend & CI/CD (C#/.NET, SQL, Bicep, GitHub Actions)**  
-  👉 [Azure-RealWorld-Labs/Lab05-HelpHub-Community-Exchange](./Azure-RealWorld-Labs/Lab05-HelpHub-Community-Exchange)
+## 🌟 Featured Labs
+
+### ⭐ [Lab04 – Secure Private Access with Azure Private Endpoints](./Azure-RealWorld-Labs/Lab04-Private-Endpoints)  
+**Bicep + GitHub Actions**  
+Enterprise-style networking, DNS resolution, and zero public exposure.
+
+### ⭐ [Lab05 – HelpHub Community Exchange](./Azure-RealWorld-Labs/Lab05-HelpHub-Community-Exchange)  
+**End-to-End Azure Admin Project**  
+Service deployment, identity management, secrets handling, and CI/CD automation.
+
+---
+
+## 🧱 Core Foundations
+
+- [Lab02 – High Availability & Load Balancing](./Azure-RealWorld-Labs/Lab02-LoadBalancing-HA)
+- [Lab03 – VMSS Autoscaling](./Azure-RealWorld-Labs/Lab03-VMSS-AutoScale)
 
 ---
 
