@@ -21,7 +21,7 @@ Resources are **created, validated, documented, and then cleaned up** to avoid u
 
 ## 🌟 Featured Labs
 
-### ⭐ [Lab04 – Secure Private Access with Azure Private Endpoints](./Azure-RealWorld-Labs/Lab04-Private-Endpoints)  
+### ⭐ [Lab04 – Secure Private Access with Azure Private Endpoints](./Azure-RealWorld-Labs/Lab04-PrivateEndpoints-PrivateDNS-KeyVault-Storage)  
 **Bicep + GitHub Actions**  
 Enterprise-style networking, DNS resolution, and zero public exposure.
 
