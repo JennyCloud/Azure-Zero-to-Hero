@@ -4,7 +4,7 @@
 ---
 
 ## 🔍 Overview
-This lab demonstrates how to deploy **private-only Azure PaaS services** using **Bicep** and **GitHub Actions (OIDC)**, following real-world **enterprise / MSP security patterns**.
+This lab demonstrates how to deploy **private-only Azure PaaS services** using **Bicep** and **GitHub Actions (OIDC)**, following real-world **enterprise / MSP security patterns**. This lab is featured because private access, DNS, and identity are where most real Azure outages actually happen.
 
 Both **Azure Storage** and **Azure Key Vault** are deployed with:
 - 🚫 **No public network access**
