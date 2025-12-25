@@ -1,55 +1,58 @@
-# ☁️ Azure Zero to Hero — Learning Portfolio  
+# ☁️ Azure Zero to Hero — Azure Administration Portfolio  
 
 ## 🧭 Overview
-This repository documents my hands-on learning journey in Microsoft Azure — building and managing real-world environments like a **cloud engineer**.
+This repository showcases my hands-on experience administering Microsoft Azure environments, with labs designed to reflect **real operational scenarios** encountered by cloud administrators and MSP teams.
 
-Labs are designed to be **production-realistic**, reproducible, and cost-aware, and are built using my personal Microsoft Azure account.  
-Resources are **created, validated, documented, and then cleaned up** to avoid unnecessary cloud costs.
+All labs are **production-realistic**, reproducible, and cost-aware, built using my personal Azure subscription.  
+Resources are **planned, deployed, validated, documented, and cleaned up** to mirror real-world cloud operations and cost controls.
+
+> **Microsoft Certified: Azure Administrator Associate (AZ-104)**
 
 ---
 
-## 📂 Structure
+## 📂 Repository Structure
 
 | Folder | Description |
 |:--|:--|
-| **[Azure-RealWorld-Labs](./Azure-RealWorld-Labs/)** | Practical, production-style Azure labs. |
-| **[MiniLabs](./MiniLabs/)** | Short, focused labs for quick practice. |
-| **[IaC-Scripts](./IaC-Scripts/)** | Infrastructure-as-Code examples using PowerShell, Bash, ARM, and Bicep. |
-| **[Cert-Prep](./Cert-Prep/)** | Study notes and structured prep materials for Azure certifications. |
+| **[Azure-RealWorld-Labs](./Azure-RealWorld-Labs/)** | Production-style Azure administration labs and scenarios |
+| **[MiniLabs](./MiniLabs/)** | Short, focused labs for targeted skill practice |
+| **[IaC-Scripts](./IaC-Scripts/)** | Infrastructure-as-Code examples (PowerShell, ARM, Bicep) |
+| **[Cert-Prep](./Cert-Prep/)** | Certification notes and scenario-based preparation |
 
 ---
 
 ## 🌟 Featured Labs
 
-### ⭐ [Lab04 – Secure Private Access with Azure Private Endpoints](./Azure-RealWorld-Labs/Lab04-PrivateEndpoints-PrivateDNS-KeyVault-Storage)  
-**Bicep + GitHub Actions**  
-Enterprise-style networking, DNS resolution, and zero public exposure.
+### ⭐ Lab04 – Secure Private Access with Azure Private Endpoints  
+**Bicep + GitHub Actions (OIDC)**  
+Private connectivity, DNS resolution, and zero public exposure using enterprise networking patterns.  
+➡️ [View lab](./Azure-RealWorld-Labs/Lab04-PrivateEndpoints-PrivateDNS-KeyVault-Storage)
 
-### ⭐ [Lab05 – HelpHub Community Exchange](./Azure-RealWorld-Labs/Lab05-HelpHub-Community-Exchange)  
-**End-to-End Azure Admin Project**  
-Service deployment, identity management, secrets handling, and CI/CD automation.
+### ⭐ Lab05 – HelpHub Community Exchange  
+**End-to-End Azure Administration Project**  
+Identity, secrets management, service deployment, and CI/CD automation.  
+➡️ [View lab](./Azure-RealWorld-Labs/Lab05-HelpHub-Community-Exchange)
 
 ---
 
-## 🧱 Core Foundations
-
+## 🧱 Core Administration Scenarios
 - [Lab02 – High Availability & Load Balancing](./Azure-RealWorld-Labs/Lab02-LoadBalancing-HA)
-- [Lab03 – VMSS Autoscaling](./Azure-RealWorld-Labs/Lab03-VMSS-AutoScale)
+- [Lab03 – VMSS Autoscale Operations](./Azure-RealWorld-Labs/Lab03-VMSS-AutoScale)
 
 ---
 
-## 🧰 Tools
-PowerShell (Az) · Bash (Azure CLI) · ARM / Bicep · GitHub Actions · Azure Portal
+## 🧰 Tools & Technologies
+Azure Portal · PowerShell (Az) · Azure CLI · ARM / **Bicep** · GitHub Actions
 
 ---
 
 ## 🧠 Focus Areas
-- Hybrid and cloud-native setups  
-- Security and access control  
-- Connectivity troubleshooting  
-- Infrastructure automation  
-- Cost awareness and resource lifecycle management  
+- Azure administration & operations (identity, networking, storage, compute)
+- Secure private connectivity and access control
+- Infrastructure automation and CI/CD
+- Troubleshooting and operational validation
+- Cost management and resource lifecycle discipline
 
 ---
 
-⭐ *Learning Azure step by step — through real labs, real scripts, and real growth.*
+⭐ *Built through real deployments, real failures, and real fixes — not screenshots alone.*
