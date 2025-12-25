@@ -1,7 +1,7 @@
 # 🎓 Certification Prep — Azure Exams
 
-**Author:** Jenny Wang (@JennyCloud)  
-**Focus:** Study notes, architecture breakdowns, and practice explanations for Microsoft Azure certification exams.
+## 🧾 Certifications
+- **Microsoft Certified: Azure Administrator Associate (AZ-104)** — Score 929
 
 ---
 
