@@ -1,6 +1,4 @@
-# Monthly Azure Updates (AZ-104)
-
-This folder tracks **monthly Azure changes relevant to the AZ-104 certification**.
+# Monthly Azure Updates
 
 Purpose:
 - Stay up to date with Azure service changes
