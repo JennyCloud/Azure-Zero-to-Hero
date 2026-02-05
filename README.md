@@ -18,7 +18,7 @@ Resources are **planned, deployed, validated, documented, and cleaned up** to mi
 | **[MiniLabs](./MiniLabs/)** | Short, focused labs for targeted skill practice |
 | **[IaC-Scripts](./IaC-Scripts/)** | Infrastructure-as-Code examples (PowerShell, ARM, Bicep) |
 | **[Cert-Prep](./Cert-Prep/)** | Certification notes and scenario-based preparation |
-| **[Monthly-Azure-Updates](./Monthly-Azure-Updates/)** | Monthly tracking of Azure changes relevant to AZ-104 renewal and exam updates |
+| **[Monthly-Azure-Updates](./Monthly-Azure-Updates/)** | Monthly tracking of Azure changes and service outages |
 
 ---
 
@@ -53,8 +53,8 @@ Azure Portal · PowerShell (Az) · Azure CLI · ARM / **Bicep** · GitHub Action
 - Infrastructure automation and CI/CD
 - Troubleshooting and operational validation
 - Cost management and resource lifecycle discipline
-- **Continuous AZ-104 knowledge maintenance and renewal readiness**
+- Continuous knowledge maintenance and service outages analysis
 
 ---
 
-⭐ *Built through real deployments, real failures, and real fixes — not screenshots alone.*
+⭐ *Built through real deployments, real failures, and real fixes.*
