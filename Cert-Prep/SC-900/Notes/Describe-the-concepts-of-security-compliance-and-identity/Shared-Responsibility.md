@@ -80,3 +80,12 @@ The exact split depends on the **cloud service model**:
 > Customers are always responsible for security *in* the cloud.**
 
 This rule **never changes**, regardless of service model.
+
+## 🎯 Why This Matters
+
+- Helps explain **why misconfigurations are usually the customer’s fault**
+- Clarifies **who applies security controls**
+- Foundational for understanding:
+  - Zero Trust
+  - Identity protection
+  - Compliance ownership
