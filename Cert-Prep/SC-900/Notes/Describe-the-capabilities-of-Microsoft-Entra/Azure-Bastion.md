@@ -10,8 +10,6 @@ It eliminates the need to:
 
 Azure Bastion helps reduce exposure to external attacks while maintaining administrative access.
 
----
-
 ## 🚨 The Security Problem It Solves
 
 Traditional VM access requires:
@@ -26,8 +24,6 @@ This increases risk:
 
 Azure Bastion removes these attack surfaces.
 
----
-
 ## 🏗️ How Azure Bastion Works
 
 - Deployed inside a Virtual Network (VNet)
@@ -37,8 +33,6 @@ Azure Bastion removes these attack surfaces.
 
 Connection Flow:
 Admin → Azure Portal → Azure Bastion → Private VM (via private IP)
-
----
 
 ## 🔐 Security Benefits
 
